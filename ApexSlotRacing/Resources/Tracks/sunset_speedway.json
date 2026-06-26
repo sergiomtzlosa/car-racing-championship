@@ -1,0 +1,42 @@
+{
+  "createdAt" : "1970-01-01T00:16:40Z",
+  "environment" : "dusk",
+  "id" : "11111111-1111-1111-1111-111111111111",
+  "isBuiltIn" : true,
+  "laneCount" : 2,
+  "name" : "Sunset Speedway",
+  "pieces" : [
+    {
+      "id" : "90B2C4B8-7D59-4DA5-96A6-F86BE61B3011",
+      "kind" : "startFinish",
+      "length" : 6,
+      "mirrored" : false
+    },
+    {
+      "id" : "1F74230A-E04B-4C24-8D41-900BFEF06753",
+      "kind" : "chicane",
+      "length" : 4,
+      "mirrored" : false
+    },
+    {
+      "id" : "288ACD1C-4D84-49B5-8717-380B50AB7A31",
+      "kind" : "curveWide180",
+      "mirrored" : false,
+      "radius" : 3.5
+    },
+    {
+      "id" : "B85AB3D2-6274-4DB0-994F-AA38CD3362B3",
+      "kind" : "straightLong",
+      "length" : 10,
+      "mirrored" : false
+    },
+    {
+      "id" : "1669BA91-9ACB-4A7A-9253-EE581C769F84",
+      "kind" : "curveWide180",
+      "mirrored" : false,
+      "radius" : 3.5
+    }
+  ],
+  "schemaVersion" : 1,
+  "updatedAt" : "1970-01-01T00:16:40Z"
+}

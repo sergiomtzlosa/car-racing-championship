@@ -1,0 +1,60 @@
+{
+  "createdAt" : "1970-01-01T00:33:20Z",
+  "environment" : "club",
+  "id" : "22222222-2222-2222-2222-222222222222",
+  "isBuiltIn" : true,
+  "laneCount" : 2,
+  "name" : "Harbor Hairpins",
+  "pieces" : [
+    {
+      "id" : "975DBEE1-7B54-4430-B95F-4CD1B0BC6152",
+      "kind" : "startFinish",
+      "length" : 6,
+      "mirrored" : false
+    },
+    {
+      "id" : "EF1B8AF0-E318-48A1-92BA-7D84B777766E",
+      "kind" : "curveSharp90",
+      "mirrored" : false,
+      "radius" : 1.9
+    },
+    {
+      "id" : "5A231BFD-E173-4BD1-87D7-606A4CE05962",
+      "kind" : "crossover",
+      "length" : 4,
+      "mirrored" : false
+    },
+    {
+      "id" : "D5C97016-9D73-4E36-B843-4D642E44D2BB",
+      "kind" : "curveSharp90",
+      "mirrored" : false,
+      "radius" : 1.9
+    },
+    {
+      "id" : "3A867E24-05C5-424A-9E23-C276A6547CED",
+      "kind" : "straightLong",
+      "length" : 6,
+      "mirrored" : false
+    },
+    {
+      "id" : "C8504911-2FE8-493A-8283-AF667952A290",
+      "kind" : "curveSharp90",
+      "mirrored" : false,
+      "radius" : 1.9
+    },
+    {
+      "id" : "B42BF04F-6BA7-446D-837B-2E42E2C0C626",
+      "kind" : "chicane",
+      "length" : 4,
+      "mirrored" : false
+    },
+    {
+      "id" : "5EC1D4AB-1842-4DA9-8E14-FEC7E4A7D30E",
+      "kind" : "curveSharp90",
+      "mirrored" : false,
+      "radius" : 1.9
+    }
+  ],
+  "schemaVersion" : 1,
+  "updatedAt" : "1970-01-01T00:33:20Z"
+}

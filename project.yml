@@ -1,0 +1,79 @@
+name: ApexSlotRacing
+options:
+  bundleIdPrefix: com.sid
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+  generateEmptyDirectories: true
+settings:
+  base:
+    # Local/student builds intentionally require no Development Team. To ship
+    # through the App Store, re-enable signing (see README.md).
+
+    SWIFT_VERSION: "5.0"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+    DEVELOPMENT_TEAM: ""
+    CODE_SIGN_STYLE: Manual
+    CODE_SIGNING_ALLOWED: NO
+    CODE_SIGNING_REQUIRED: NO
+    PROVISIONING_PROFILE_SPECIFIER: ""
+    ENABLE_HARDENED_RUNTIME: YES
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    CLANG_ENABLE_MODULES: YES
+    SWIFT_STRICT_CONCURRENCY: minimal
+    GCC_WARN_UNUSED_VARIABLE: YES
+targets:
+  ApexSlotRacing:
+    type: application
+    platform: macOS
+    sources:
+      - path: ApexSlotRacing
+        excludes:
+          - "Support/Info.plist"
+          - "Support/ApexSlotRacing.entitlements"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sid.ApexSlotRacing
+        PRODUCT_NAME: ApexSlotRacing
+        # Keep the full-resolution explicit .icns instead of the thinned icon
+        # the asset compiler emits. The AppIcon.appiconset remains as source.
+        ASSETCATALOG_COMPILER_APPICON_NAME: ""
+        INFOPLIST_FILE: ApexSlotRacing/Support/Info.plist
+        CODE_SIGN_ENTITLEMENTS: ApexSlotRacing/Support/ApexSlotRacing.entitlements
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        COMBINE_HIDPI_IMAGES: YES
+        LD_RUNPATH_SEARCH_PATHS:
+          - "$(inherited)"
+          - "@executable_path/../Frameworks"
+    dependencies:
+      - sdk: SceneKit.framework
+      - sdk: GameKit.framework
+      - sdk: AVFoundation.framework
+      - sdk: GameController.framework
+      - sdk: Network.framework
+  ApexSlotRacingTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: ApexSlotRacingTests
+    dependencies:
+      - target: ApexSlotRacing
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.sid.ApexSlotRacingTests
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  ApexSlotRacing:
+    build:
+      targets:
+        ApexSlotRacing: all
+        ApexSlotRacingTests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - ApexSlotRacingTests
+    archive:
+      config: Release

@@ -1,0 +1,32 @@
+# macOS
+.DS_Store
+
+# Xcode build products
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.moved-aside
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# XcodeGen generated project (committed intentionally; regenerate with xcodegen)
+# Keep ApexSlotRacing.xcodeproj in version control for one-command builds.
+
+# Local tooling
+.swiftpm/
+.tuist/
+__pycache__/
+*.pyc
+*.xcresult
+*.log
+
+# Runtime data should live in Application Support, never in the source tree.
+ApexSlotRacing.app/
+.config

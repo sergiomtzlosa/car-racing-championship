@@ -1,0 +1,877 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01390CF78BBA57D20B66A8DD /* CarSceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25ACAC02ADD43B75764E61F6 /* CarSceneFactory.swift */; };
+		03AC6C47AF8FAF1169742399 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0016C4C294A9B28FCBA4A62 /* SceneKit.framework */; };
+		09BBF722DC13E2CD85C2F7E1 /* CloudAIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E575826ACBE97EC302A494E1 /* CloudAIServiceTests.swift */; };
+		0FB367EDBE7C2F8725584CC1 /* TrackValidationSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0AF7D5F265F3C6DF5709D6 /* TrackValidationSheet.swift */; };
+		0FE8E783E0E54C0F5EA977A2 /* TrackPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5EBDB591B6CCC699866E754 /* TrackPath.swift */; };
+		1189822588A56FBBA493D043 /* AppModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74577093FC22E71AEFD83CF1 /* AppModelTests.swift */; };
+		12540782D5BDF8EF859C3D20 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38BFF52F04EEB5FD2279FE5 /* ResultsView.swift */; };
+		13A654A4DA96B23692E7F192 /* harbor_hairpins.json in Resources */ = {isa = PBXBuildFile; fileRef = 14E46DA8154ECCA1BA1BFE1E /* harbor_hairpins.json */; };
+		185F0498D5BB0BD9D03E4FF9 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392D4FD5399F39DE3CE953D1 /* NetworkMonitor.swift */; };
+		18CCB227FA3D739C455024DC /* RaceSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B606C0A8CCF5EEFDF9016B7F /* RaceSetupView.swift */; };
+		1B430CCD5F65BEC9EE5819D1 /* SettingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C30F8BF364DECF03EB619A8 /* SettingsUITests.swift */; };
+		1DE8B51228F6F59A7CFD79AD /* TrackEditorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DF17B4A08E34A6403FB7E8 /* TrackEditorModel.swift */; };
+		228DB39F0170804D2A78235B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31A4A415A7E147172D7DF415 /* Assets.xcassets */; };
+		256F8FEFCCED5B8B92FB72C8 /* TrackFileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74AF3B42469F751E8736B0F /* TrackFileService.swift */; };
+		27AD5443D303FA3FA805691E /* RaceSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613F8F2437EFAD685F1563A1 /* RaceSession.swift */; };
+		288157BA87ABA389A91E84CF /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73394F88B92E2088D580E7B4 /* RootView.swift */; };
+		2B515C5F1585DD183322A8F4 /* AIDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA9AEE4FDE2315B6FC92827 /* AIDriver.swift */; };
+		30F11B6331F1994840F98B30 /* RaceOverlays.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF92DE64BD9902041620F32C /* RaceOverlays.swift */; };
+		33421B3CB1D319B04C02F12C /* SceneSmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2751ED9FB6A584B0C0670824 /* SceneSmokeTests.swift */; };
+		35610E278DC4971670CA8762 /* TrackEditorScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C953EE91EC0109CF7155B19 /* TrackEditorScene.swift */; };
+		3763E636BE9E6802F04E2D74 /* HapticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08D49712984ED46836A4781 /* HapticsService.swift */; };
+		3DBDA6D795216E21C01B7A00 /* TrackSceneBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25952090D066BC3F54ED0385 /* TrackSceneBuilder.swift */; };
+		42416DC0EEEDFB9B191E396B /* ChampionshipUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C181B090C4082ACBE15545A4 /* ChampionshipUITests.swift */; };
+		42648666206F306E90FDBE6C /* RaceSimulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0083D3FCF9E8F43A8860B36 /* RaceSimulation.swift */; };
+		4819CC477189918CDE4F28B2 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD9784444DE6A93388588BD /* MainMenuView.swift */; };
+		48FB27FB485D420E1A5FBB86 /* ChampionshipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9F2AADFBF36B531DD2E0F /* ChampionshipTests.swift */; };
+		4ABF15BA5D0026A8DEA76D36 /* AudioDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A285EF0205DCADBEEB4E766 /* AudioDirector.swift */; };
+		4D562C87E8489B633727C87E /* CloudAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C35B3E37CAA97FF84D722A /* CloudAIService.swift */; };
+		51869892D1A4D24212C9D0BF /* TextureFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AC89256876D6C67DB20CF6 /* TextureFactory.swift */; };
+		554EC73FFF3BA3E61774E180 /* MainMenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6977FFA38BE0C0539446B81F /* MainMenuUITests.swift */; };
+		58B15FC86469A73759F28444 /* RaceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAC5D52A0C8AFC95B6A7EA5 /* RaceModels.swift */; };
+		6603BC2F1E8257BFDEA16986 /* ClosurePathPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB561913FD87EA7186772D54 /* ClosurePathPlanner.swift */; };
+		67CF31223468EAE5C2F81391 /* SFXSynth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E4151F07321D5AE92FFCA /* SFXSynth.swift */; };
+		69B61ED7D903FB9B58BB557B /* GameCenterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6FECF7444E07D90F29FFDC /* GameCenterService.swift */; };
+		6BADAE321B958342296D1032 /* TrackEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE67DB7BAFA2E110F8B849B /* TrackEditorView.swift */; };
+		6D3D90F1013125366F369500 /* GarageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33753F833A41226ADB368D8E /* GarageUITests.swift */; };
+		6E9744D6F7AE956D3F36EBD5 /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86026159429C74BA59E4CF5B /* Commands.swift */; };
+		6F18CA6B6B85D968D48B3BB5 /* ApexUITestSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D919075CB4171DE9E9E26B /* ApexUITestSupport.swift */; };
+		6F791424E9D805C18C481240 /* RaceSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C4FCE4241087FC5F7B7F53 /* RaceSceneController.swift */; };
+		7134774589F0EFC008AD4060 /* ChampionshipDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3BB29103E06656BEA3936C /* ChampionshipDirector.swift */; };
+		751F480B960DB8D92F30D879 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5A73D135A01F9C1BCF6626 /* GameController.framework */; };
+		7A30CB5FDAB01E0A5DD81571 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C15E3E6532BF48012B7497 /* AppModel.swift */; };
+		7B416BD742D53C14ABAC7D43 /* loop_360.json in Resources */ = {isa = PBXBuildFile; fileRef = 4FAEB0EED973DF13F701234A /* loop_360.json */; };
+		825EBD10358649A4C1FB1129 /* RaceSetupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70754987558A94E018177951 /* RaceSetupUITests.swift */; };
+		829E54A4FAF1406BDA40C095 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2AA93F6B2AE945ADFCA200 /* SettingsView.swift */; };
+		88BFBD45EF7B756E23FD9E65 /* SaveStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AACC39015B924D781E3E68 /* SaveStore.swift */; };
+		8A5BA3E5F4911DF52EE8BCFF /* AchievementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A510E849E24DE97DDAAC3B65 /* AchievementService.swift */; };
+		8BBE7D5250656E29622A7433 /* GarageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E00D3E42A98823A3EAE22C8 /* GarageView.swift */; };
+		9B997151DF038D266D0EE00B /* MenuCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0BB36A08438AEE9D50C685 /* MenuCommandTests.swift */; };
+		9C421D0D34FBABCA7B3D7610 /* ShowcaseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCCA1876EFB1EC7E93A21F3 /* ShowcaseScene.swift */; };
+		9CC476EE9D8815592738E630 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E15F74AC113FA3E896D72F6 /* Theme.swift */; };
+		A4DAFF06706A7FEA9F4B1676 /* RaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FA993562182CFA999D829A /* RaceView.swift */; };
+		A51BAA3EE4EC8B661AF98C21 /* UIScreenSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5E40D267C67A8C4A2117B2 /* UIScreenSnapshotTests.swift */; };
+		A8441555CE8640F5FE297761 /* MusicSynth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114286BA6AD9844BF892591 /* MusicSynth.swift */; };
+		AA13A3AC7B4162AEEC85229A /* sunset_speedway.json in Resources */ = {isa = PBXBuildFile; fileRef = 326E8BABC6E2CD81CC4E8430 /* sunset_speedway.json */; };
+		ACF01A7B04BC3B89A20F7894 /* TrackModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F1F65E29A8263A4038E5EE /* TrackModels.swift */; };
+		ADD085EFFE221E3307137ADC /* TrackCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AC82C3C564F0B8996057CB /* TrackCatalog.swift */; };
+		AF8C93897FB6A60D7A3DBE6B /* GameCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AC40CF50AD592798BB03D8 /* GameCenterView.swift */; };
+		B4E9CDB7C22AD7747BB4B9CA /* RaceHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0881AC3F83E5A72583BCEAB6 /* RaceHUD.swift */; };
+		B7B9ABE2DE3031534EF3A6A6 /* RaceHUDAndOverlayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97589F1118D374C7E3CC387E /* RaceHUDAndOverlayUITests.swift */; };
+		B8D866689F6F5A730672DB66 /* ApexSlotRacingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBCAB2E33FA9C294CC3899A /* ApexSlotRacingApp.swift */; };
+		BC2DD4F25B277F4DAA939D5A /* TrackPathBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8133D0AECC236887C8F7A85B /* TrackPathBuilder.swift */; };
+		BE185A5A74F5F36217A16484 /* TrackPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C0F014968642D7C9336B2E /* TrackPathTests.swift */; };
+		C7FA98C7571BA6ECC5442607 /* TrackEditorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71473577267531984CC33707 /* TrackEditorUITests.swift */; };
+		D32FD5C889604BE8ECADFF78 /* PhysicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60BDC93270E1F3EBBF3CF016 /* PhysicsTests.swift */; };
+		D3B373965D598ADE715748DD /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 9DA6B29864C254EEBF09BAE7 /* AppIcon.icns */; };
+		D47A97760C4142C9AFE449D4 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79EC62F627E705A148B1592D /* GameKit.framework */; };
+		D4D5ECC12576C6B138ADA918 /* SerializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F24D51869E31EADC66C2C /* SerializationTests.swift */; };
+		E471158576E4917C3B0AB8F7 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15732A82FB463757A04DA7EF /* Components.swift */; };
+		E4C9D2785BF1032317FEE8BE /* GameCenterAndResultsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59E322ED09A4C7FE00DE975 /* GameCenterAndResultsUITests.swift */; };
+		E4CF277898FF6635A3EA187D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A189B3F8E769E0E870AD14 /* AVFoundation.framework */; };
+		ECDAF5C5D086725F75E0E195 /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9853316C1CB07999F0E26A /* Network.framework */; };
+		ECE08D8B028AB3A88140B7E1 /* ChampionshipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8D6B0E364916748D116876 /* ChampionshipView.swift */; };
+		EE62B1C08F5EFFA24E962A47 /* TestSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72763FD27BAB782B9A2C42 /* TestSupport.swift */; };
+		F27A50DB35CBE754ED75E86C /* MotorSynth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD527E323525595A5A274A5E /* MotorSynth.swift */; };
+		FA05F60503E9AF48EE6D51C7 /* AudioSmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756FFF10D4C93A1360AD89D3 /* AudioSmokeTests.swift */; };
+		FD8B151D931BD67C2FC4EBD4 /* night_grand_prix.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EE373DF02A40E209D67A889 /* night_grand_prix.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		63E6D027E2FB219E602D0F71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 12DBB197BBD9ACC5DD733791 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AA2183C09F43BBE873C1062;
+			remoteInfo = ApexSlotRacing;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04A189B3F8E769E0E870AD14 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		04C35B3E37CAA97FF84D722A /* CloudAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudAIService.swift; sourceTree = "<group>"; };
+		0881AC3F83E5A72583BCEAB6 /* RaceHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceHUD.swift; sourceTree = "<group>"; };
+		0A285EF0205DCADBEEB4E766 /* AudioDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDirector.swift; sourceTree = "<group>"; };
+		13FA993562182CFA999D829A /* RaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceView.swift; sourceTree = "<group>"; };
+		14E46DA8154ECCA1BA1BFE1E /* harbor_hairpins.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = harbor_hairpins.json; sourceTree = "<group>"; };
+		15732A82FB463757A04DA7EF /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		1EA9AEE4FDE2315B6FC92827 /* AIDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIDriver.swift; sourceTree = "<group>"; };
+		25952090D066BC3F54ED0385 /* TrackSceneBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSceneBuilder.swift; sourceTree = "<group>"; };
+		25ACAC02ADD43B75764E61F6 /* CarSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSceneFactory.swift; sourceTree = "<group>"; };
+		2751ED9FB6A584B0C0670824 /* SceneSmokeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneSmokeTests.swift; sourceTree = "<group>"; };
+		31A4A415A7E147172D7DF415 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		326E8BABC6E2CD81CC4E8430 /* sunset_speedway.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sunset_speedway.json; sourceTree = "<group>"; };
+		33753F833A41226ADB368D8E /* GarageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageUITests.swift; sourceTree = "<group>"; };
+		392D4FD5399F39DE3CE953D1 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		4EE373DF02A40E209D67A889 /* night_grand_prix.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = night_grand_prix.json; sourceTree = "<group>"; };
+		4FAEB0EED973DF13F701234A /* loop_360.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = loop_360.json; sourceTree = "<group>"; };
+		569CE53529A2CF72D351DDF0 /* ApexSlotRacing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApexSlotRacing.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		56AC82C3C564F0B8996057CB /* TrackCatalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCatalog.swift; sourceTree = "<group>"; };
+		5B5A73D135A01F9C1BCF6626 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
+		5C953EE91EC0109CF7155B19 /* TrackEditorScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackEditorScene.swift; sourceTree = "<group>"; };
+		5E3BB29103E06656BEA3936C /* ChampionshipDirector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionshipDirector.swift; sourceTree = "<group>"; };
+		60BDC93270E1F3EBBF3CF016 /* PhysicsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsTests.swift; sourceTree = "<group>"; };
+		613F8F2437EFAD685F1563A1 /* RaceSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceSession.swift; sourceTree = "<group>"; };
+		62C0F014968642D7C9336B2E /* TrackPathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackPathTests.swift; sourceTree = "<group>"; };
+		68AC89256876D6C67DB20CF6 /* TextureFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureFactory.swift; sourceTree = "<group>"; };
+		6977FFA38BE0C0539446B81F /* MainMenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuUITests.swift; sourceTree = "<group>"; };
+		6C0AF7D5F265F3C6DF5709D6 /* TrackValidationSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackValidationSheet.swift; sourceTree = "<group>"; };
+		6DE67DB7BAFA2E110F8B849B /* TrackEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackEditorView.swift; sourceTree = "<group>"; };
+		70754987558A94E018177951 /* RaceSetupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceSetupUITests.swift; sourceTree = "<group>"; };
+		71473577267531984CC33707 /* TrackEditorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackEditorUITests.swift; sourceTree = "<group>"; };
+		73394F88B92E2088D580E7B4 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		74577093FC22E71AEFD83CF1 /* AppModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModelTests.swift; sourceTree = "<group>"; };
+		756FFF10D4C93A1360AD89D3 /* AudioSmokeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSmokeTests.swift; sourceTree = "<group>"; };
+		77DF17B4A08E34A6403FB7E8 /* TrackEditorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackEditorModel.swift; sourceTree = "<group>"; };
+		79EC62F627E705A148B1592D /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		8114286BA6AD9844BF892591 /* MusicSynth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSynth.swift; sourceTree = "<group>"; };
+		8133D0AECC236887C8F7A85B /* TrackPathBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackPathBuilder.swift; sourceTree = "<group>"; };
+		86026159429C74BA59E4CF5B /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
+		8A6E4151F07321D5AE92FFCA /* SFXSynth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFXSynth.swift; sourceTree = "<group>"; };
+		8E15F74AC113FA3E896D72F6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		8FD9784444DE6A93388588BD /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
+		966F24D51869E31EADC66C2C /* SerializationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationTests.swift; sourceTree = "<group>"; };
+		96F9F2AADFBF36B531DD2E0F /* ChampionshipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionshipTests.swift; sourceTree = "<group>"; };
+		97589F1118D374C7E3CC387E /* RaceHUDAndOverlayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceHUDAndOverlayUITests.swift; sourceTree = "<group>"; };
+		9C30F8BF364DECF03EB619A8 /* SettingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUITests.swift; sourceTree = "<group>"; };
+		9DA6B29864C254EEBF09BAE7 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
+		9E00D3E42A98823A3EAE22C8 /* GarageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageView.swift; sourceTree = "<group>"; };
+		A0016C4C294A9B28FCBA4A62 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
+		A0F1F65E29A8263A4038E5EE /* TrackModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackModels.swift; sourceTree = "<group>"; };
+		A510E849E24DE97DDAAC3B65 /* AchievementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementService.swift; sourceTree = "<group>"; };
+		AC8D6B0E364916748D116876 /* ChampionshipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionshipView.swift; sourceTree = "<group>"; };
+		AC9853316C1CB07999F0E26A /* Network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Network.framework; path = System/Library/Frameworks/Network.framework; sourceTree = SDKROOT; };
+		AD527E323525595A5A274A5E /* MotorSynth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotorSynth.swift; sourceTree = "<group>"; };
+		AFCCA1876EFB1EC7E93A21F3 /* ShowcaseScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowcaseScene.swift; sourceTree = "<group>"; };
+		B0AC40CF50AD592798BB03D8 /* GameCenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterView.swift; sourceTree = "<group>"; };
+		B2C15E3E6532BF48012B7497 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		B606C0A8CCF5EEFDF9016B7F /* RaceSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceSetupView.swift; sourceTree = "<group>"; };
+		BB561913FD87EA7186772D54 /* ClosurePathPlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosurePathPlanner.swift; sourceTree = "<group>"; };
+		BE0BB36A08438AEE9D50C685 /* MenuCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCommandTests.swift; sourceTree = "<group>"; };
+		BF2AA93F6B2AE945ADFCA200 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C181B090C4082ACBE15545A4 /* ChampionshipUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionshipUITests.swift; sourceTree = "<group>"; };
+		C59E322ED09A4C7FE00DE975 /* GameCenterAndResultsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterAndResultsUITests.swift; sourceTree = "<group>"; };
+		D0083D3FCF9E8F43A8860B36 /* RaceSimulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceSimulation.swift; sourceTree = "<group>"; };
+		D08D49712984ED46836A4781 /* HapticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsService.swift; sourceTree = "<group>"; };
+		D38BFF52F04EEB5FD2279FE5 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		D5EBDB591B6CCC699866E754 /* TrackPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackPath.swift; sourceTree = "<group>"; };
+		D74AF3B42469F751E8736B0F /* TrackFileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackFileService.swift; sourceTree = "<group>"; };
+		D7C4FCE4241087FC5F7B7F53 /* RaceSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceSceneController.swift; sourceTree = "<group>"; };
+		DD242D8D8E4BDB2434BE8E85 /* ApexSlotRacingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApexSlotRacingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDBCAB2E33FA9C294CC3899A /* ApexSlotRacingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApexSlotRacingApp.swift; sourceTree = "<group>"; };
+		DEAC5D52A0C8AFC95B6A7EA5 /* RaceModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceModels.swift; sourceTree = "<group>"; };
+		E0D919075CB4171DE9E9E26B /* ApexUITestSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApexUITestSupport.swift; sourceTree = "<group>"; };
+		E575826ACBE97EC302A494E1 /* CloudAIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudAIServiceTests.swift; sourceTree = "<group>"; };
+		E5AACC39015B924D781E3E68 /* SaveStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveStore.swift; sourceTree = "<group>"; };
+		EA5E40D267C67A8C4A2117B2 /* UIScreenSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenSnapshotTests.swift; sourceTree = "<group>"; };
+		ED6FECF7444E07D90F29FFDC /* GameCenterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterService.swift; sourceTree = "<group>"; };
+		EF92DE64BD9902041620F32C /* RaceOverlays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceOverlays.swift; sourceTree = "<group>"; };
+		FA72763FD27BAB782B9A2C42 /* TestSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSupport.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		189883B4EF186575A337F2A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03AC6C47AF8FAF1169742399 /* SceneKit.framework in Frameworks */,
+				D47A97760C4142C9AFE449D4 /* GameKit.framework in Frameworks */,
+				E4CF277898FF6635A3EA187D /* AVFoundation.framework in Frameworks */,
+				751F480B960DB8D92F30D879 /* GameController.framework in Frameworks */,
+				ECDAF5C5D086725F75E0E195 /* Network.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03528EB5513C59ACAB54A707 /* Vehicle */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Vehicle;
+			sourceTree = "<group>";
+		};
+		04E8496A321D6959B9F8E127 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04A189B3F8E769E0E870AD14 /* AVFoundation.framework */,
+				5B5A73D135A01F9C1BCF6626 /* GameController.framework */,
+				79EC62F627E705A148B1592D /* GameKit.framework */,
+				AC9853316C1CB07999F0E26A /* Network.framework */,
+				A0016C4C294A9B28FCBA4A62 /* SceneKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		09FE40E48A55CDD21FA22A35 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		10985B1FCFCB140A500970B6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9DA6B29864C254EEBF09BAE7 /* AppIcon.icns */,
+				31A4A415A7E147172D7DF415 /* Assets.xcassets */,
+				40655420084F671BD74C393F /* Tracks */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		123DB7DA4C20734899EAA0CB /* Championship */ = {
+			isa = PBXGroup;
+			children = (
+				5E3BB29103E06656BEA3936C /* ChampionshipDirector.swift */,
+			);
+			path = Championship;
+			sourceTree = "<group>";
+		};
+		40655420084F671BD74C393F /* Tracks */ = {
+			isa = PBXGroup;
+			children = (
+				14E46DA8154ECCA1BA1BFE1E /* harbor_hairpins.json */,
+				4FAEB0EED973DF13F701234A /* loop_360.json */,
+				4EE373DF02A40E209D67A889 /* night_grand_prix.json */,
+				326E8BABC6E2CD81CC4E8430 /* sunset_speedway.json */,
+			);
+			path = Tracks;
+			sourceTree = "<group>";
+		};
+		4F2DD0B819D8D551BD18E804 /* ApexSlotRacingTests */ = {
+			isa = PBXGroup;
+			children = (
+				E0D919075CB4171DE9E9E26B /* ApexUITestSupport.swift */,
+				74577093FC22E71AEFD83CF1 /* AppModelTests.swift */,
+				756FFF10D4C93A1360AD89D3 /* AudioSmokeTests.swift */,
+				96F9F2AADFBF36B531DD2E0F /* ChampionshipTests.swift */,
+				C181B090C4082ACBE15545A4 /* ChampionshipUITests.swift */,
+				E575826ACBE97EC302A494E1 /* CloudAIServiceTests.swift */,
+				C59E322ED09A4C7FE00DE975 /* GameCenterAndResultsUITests.swift */,
+				33753F833A41226ADB368D8E /* GarageUITests.swift */,
+				6977FFA38BE0C0539446B81F /* MainMenuUITests.swift */,
+				BE0BB36A08438AEE9D50C685 /* MenuCommandTests.swift */,
+				60BDC93270E1F3EBBF3CF016 /* PhysicsTests.swift */,
+				97589F1118D374C7E3CC387E /* RaceHUDAndOverlayUITests.swift */,
+				70754987558A94E018177951 /* RaceSetupUITests.swift */,
+				2751ED9FB6A584B0C0670824 /* SceneSmokeTests.swift */,
+				966F24D51869E31EADC66C2C /* SerializationTests.swift */,
+				9C30F8BF364DECF03EB619A8 /* SettingsUITests.swift */,
+				FA72763FD27BAB782B9A2C42 /* TestSupport.swift */,
+				71473577267531984CC33707 /* TrackEditorUITests.swift */,
+				62C0F014968642D7C9336B2E /* TrackPathTests.swift */,
+				EA5E40D267C67A8C4A2117B2 /* UIScreenSnapshotTests.swift */,
+			);
+			path = ApexSlotRacingTests;
+			sourceTree = "<group>";
+		};
+		50B49DDA52AC63745046F288 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				E5AACC39015B924D781E3E68 /* SaveStore.swift */,
+				D74AF3B42469F751E8736B0F /* TrackFileService.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		51B65A6A529752B6A90503AA /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DEAC5D52A0C8AFC95B6A7EA5 /* RaceModels.swift */,
+				56AC82C3C564F0B8996057CB /* TrackCatalog.swift */,
+				A0F1F65E29A8263A4038E5EE /* TrackModels.swift */,
+				D5EBDB591B6CCC699866E754 /* TrackPath.swift */,
+				8133D0AECC236887C8F7A85B /* TrackPathBuilder.swift */,
+				123DB7DA4C20734899EAA0CB /* Championship */,
+				50B49DDA52AC63745046F288 /* Persistence */,
+				C82D55AB7B9136EC6BDEF28B /* Race */,
+				F1F7876185561C9F50AB6BE1 /* Track */,
+				03528EB5513C59ACAB54A707 /* Vehicle */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		5222DD193D8509FD2DDE474D = {
+			isa = PBXGroup;
+			children = (
+				D779E44C12B4C1DF6DE2F0E5 /* ApexSlotRacing */,
+				4F2DD0B819D8D551BD18E804 /* ApexSlotRacingTests */,
+				04E8496A321D6959B9F8E127 /* Frameworks */,
+				E71B688D561C53F4E8F0CDE7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6CF24924045DBEB43B8444E2 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				AC8D6B0E364916748D116876 /* ChampionshipView.swift */,
+				B0AC40CF50AD592798BB03D8 /* GameCenterView.swift */,
+				9E00D3E42A98823A3EAE22C8 /* GarageView.swift */,
+				8FD9784444DE6A93388588BD /* MainMenuView.swift */,
+				EF92DE64BD9902041620F32C /* RaceOverlays.swift */,
+				B606C0A8CCF5EEFDF9016B7F /* RaceSetupView.swift */,
+				13FA993562182CFA999D829A /* RaceView.swift */,
+				D38BFF52F04EEB5FD2279FE5 /* ResultsView.swift */,
+				BF2AA93F6B2AE945ADFCA200 /* SettingsView.swift */,
+				6DE67DB7BAFA2E110F8B849B /* TrackEditorView.swift */,
+				6C0AF7D5F265F3C6DF5709D6 /* TrackValidationSheet.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		70D8D29E6B877B98E7D0C34B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				DDBCAB2E33FA9C294CC3899A /* ApexSlotRacingApp.swift */,
+				B2C15E3E6532BF48012B7497 /* AppModel.swift */,
+				86026159429C74BA59E4CF5B /* Commands.swift */,
+				73394F88B92E2088D580E7B4 /* RootView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		9CED11F9A6ACFEF24021D9A6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A510E849E24DE97DDAAC3B65 /* AchievementService.swift */,
+				04C35B3E37CAA97FF84D722A /* CloudAIService.swift */,
+				ED6FECF7444E07D90F29FFDC /* GameCenterService.swift */,
+				D08D49712984ED46836A4781 /* HapticsService.swift */,
+				392D4FD5399F39DE3CE953D1 /* NetworkMonitor.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9FF236173B37FC4CBC01E24E /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				0A285EF0205DCADBEEB4E766 /* AudioDirector.swift */,
+				AD527E323525595A5A274A5E /* MotorSynth.swift */,
+				8114286BA6AD9844BF892591 /* MusicSynth.swift */,
+				8A6E4151F07321D5AE92FFCA /* SFXSynth.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		AA5355A3B4EA06FD3DD5EF2F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				15732A82FB463757A04DA7EF /* Components.swift */,
+				8E15F74AC113FA3E896D72F6 /* Theme.swift */,
+				09FE40E48A55CDD21FA22A35 /* Components */,
+				F66E991D2C5AF2793C7B8EB8 /* HUD */,
+				6CF24924045DBEB43B8444E2 /* Screens */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		AC8AF77E3E26B4E8BD73A858 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				25ACAC02ADD43B75764E61F6 /* CarSceneFactory.swift */,
+				D7C4FCE4241087FC5F7B7F53 /* RaceSceneController.swift */,
+				613F8F2437EFAD685F1563A1 /* RaceSession.swift */,
+				AFCCA1876EFB1EC7E93A21F3 /* ShowcaseScene.swift */,
+				68AC89256876D6C67DB20CF6 /* TextureFactory.swift */,
+				5C953EE91EC0109CF7155B19 /* TrackEditorScene.swift */,
+				25952090D066BC3F54ED0385 /* TrackSceneBuilder.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		C82D55AB7B9136EC6BDEF28B /* Race */ = {
+			isa = PBXGroup;
+			children = (
+				1EA9AEE4FDE2315B6FC92827 /* AIDriver.swift */,
+				D0083D3FCF9E8F43A8860B36 /* RaceSimulation.swift */,
+			);
+			path = Race;
+			sourceTree = "<group>";
+		};
+		D779E44C12B4C1DF6DE2F0E5 /* ApexSlotRacing */ = {
+			isa = PBXGroup;
+			children = (
+				70D8D29E6B877B98E7D0C34B /* App */,
+				9FF236173B37FC4CBC01E24E /* Audio */,
+				51B65A6A529752B6A90503AA /* Core */,
+				10985B1FCFCB140A500970B6 /* Resources */,
+				AC8AF77E3E26B4E8BD73A858 /* Scene */,
+				9CED11F9A6ACFEF24021D9A6 /* Services */,
+				AA5355A3B4EA06FD3DD5EF2F /* UI */,
+			);
+			path = ApexSlotRacing;
+			sourceTree = "<group>";
+		};
+		E71B688D561C53F4E8F0CDE7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				569CE53529A2CF72D351DDF0 /* ApexSlotRacing.app */,
+				DD242D8D8E4BDB2434BE8E85 /* ApexSlotRacingTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F1F7876185561C9F50AB6BE1 /* Track */ = {
+			isa = PBXGroup;
+			children = (
+				BB561913FD87EA7186772D54 /* ClosurePathPlanner.swift */,
+				77DF17B4A08E34A6403FB7E8 /* TrackEditorModel.swift */,
+			);
+			path = Track;
+			sourceTree = "<group>";
+		};
+		F66E991D2C5AF2793C7B8EB8 /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				0881AC3F83E5A72583BCEAB6 /* RaceHUD.swift */,
+			);
+			path = HUD;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5AA2183C09F43BBE873C1062 /* ApexSlotRacing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0863F83B97E3174BF20140FF /* Build configuration list for PBXNativeTarget "ApexSlotRacing" */;
+			buildPhases = (
+				85690FD59C45109D2C4F5909 /* Sources */,
+				72EA5E1077599981B5024C7C /* Resources */,
+				189883B4EF186575A337F2A5 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ApexSlotRacing;
+			packageProductDependencies = (
+			);
+			productName = ApexSlotRacing;
+			productReference = 569CE53529A2CF72D351DDF0 /* ApexSlotRacing.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B0FF349CCD5DDCA190BA162B /* ApexSlotRacingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F112F3ABC6A2CB8AE55039E2 /* Build configuration list for PBXNativeTarget "ApexSlotRacingTests" */;
+			buildPhases = (
+				D022CA69BD4ABAF7B7CB6ABB /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3C1786635E03B6C0C6ECF857 /* PBXTargetDependency */,
+			);
+			name = ApexSlotRacingTests;
+			packageProductDependencies = (
+			);
+			productName = ApexSlotRacingTests;
+			productReference = DD242D8D8E4BDB2434BE8E85 /* ApexSlotRacingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		12DBB197BBD9ACC5DD733791 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2720;
+				TargetAttributes = {
+					5AA2183C09F43BBE873C1062 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+					B0FF349CCD5DDCA190BA162B = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 059B9A8456AB9F94562E3857 /* Build configuration list for PBXProject "ApexSlotRacing" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 5222DD193D8509FD2DDE474D;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = E71B688D561C53F4E8F0CDE7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5AA2183C09F43BBE873C1062 /* ApexSlotRacing */,
+				B0FF349CCD5DDCA190BA162B /* ApexSlotRacingTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		72EA5E1077599981B5024C7C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3B373965D598ADE715748DD /* AppIcon.icns in Resources */,
+				228DB39F0170804D2A78235B /* Assets.xcassets in Resources */,
+				13A654A4DA96B23692E7F192 /* harbor_hairpins.json in Resources */,
+				7B416BD742D53C14ABAC7D43 /* loop_360.json in Resources */,
+				FD8B151D931BD67C2FC4EBD4 /* night_grand_prix.json in Resources */,
+				AA13A3AC7B4162AEEC85229A /* sunset_speedway.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		85690FD59C45109D2C4F5909 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B515C5F1585DD183322A8F4 /* AIDriver.swift in Sources */,
+				8A5BA3E5F4911DF52EE8BCFF /* AchievementService.swift in Sources */,
+				B8D866689F6F5A730672DB66 /* ApexSlotRacingApp.swift in Sources */,
+				7A30CB5FDAB01E0A5DD81571 /* AppModel.swift in Sources */,
+				4ABF15BA5D0026A8DEA76D36 /* AudioDirector.swift in Sources */,
+				01390CF78BBA57D20B66A8DD /* CarSceneFactory.swift in Sources */,
+				7134774589F0EFC008AD4060 /* ChampionshipDirector.swift in Sources */,
+				ECE08D8B028AB3A88140B7E1 /* ChampionshipView.swift in Sources */,
+				6603BC2F1E8257BFDEA16986 /* ClosurePathPlanner.swift in Sources */,
+				4D562C87E8489B633727C87E /* CloudAIService.swift in Sources */,
+				6E9744D6F7AE956D3F36EBD5 /* Commands.swift in Sources */,
+				E471158576E4917C3B0AB8F7 /* Components.swift in Sources */,
+				69B61ED7D903FB9B58BB557B /* GameCenterService.swift in Sources */,
+				AF8C93897FB6A60D7A3DBE6B /* GameCenterView.swift in Sources */,
+				8BBE7D5250656E29622A7433 /* GarageView.swift in Sources */,
+				3763E636BE9E6802F04E2D74 /* HapticsService.swift in Sources */,
+				4819CC477189918CDE4F28B2 /* MainMenuView.swift in Sources */,
+				F27A50DB35CBE754ED75E86C /* MotorSynth.swift in Sources */,
+				A8441555CE8640F5FE297761 /* MusicSynth.swift in Sources */,
+				185F0498D5BB0BD9D03E4FF9 /* NetworkMonitor.swift in Sources */,
+				B4E9CDB7C22AD7747BB4B9CA /* RaceHUD.swift in Sources */,
+				58B15FC86469A73759F28444 /* RaceModels.swift in Sources */,
+				30F11B6331F1994840F98B30 /* RaceOverlays.swift in Sources */,
+				6F791424E9D805C18C481240 /* RaceSceneController.swift in Sources */,
+				27AD5443D303FA3FA805691E /* RaceSession.swift in Sources */,
+				18CCB227FA3D739C455024DC /* RaceSetupView.swift in Sources */,
+				42648666206F306E90FDBE6C /* RaceSimulation.swift in Sources */,
+				A4DAFF06706A7FEA9F4B1676 /* RaceView.swift in Sources */,
+				12540782D5BDF8EF859C3D20 /* ResultsView.swift in Sources */,
+				288157BA87ABA389A91E84CF /* RootView.swift in Sources */,
+				67CF31223468EAE5C2F81391 /* SFXSynth.swift in Sources */,
+				88BFBD45EF7B756E23FD9E65 /* SaveStore.swift in Sources */,
+				829E54A4FAF1406BDA40C095 /* SettingsView.swift in Sources */,
+				9C421D0D34FBABCA7B3D7610 /* ShowcaseScene.swift in Sources */,
+				51869892D1A4D24212C9D0BF /* TextureFactory.swift in Sources */,
+				9CC476EE9D8815592738E630 /* Theme.swift in Sources */,
+				ADD085EFFE221E3307137ADC /* TrackCatalog.swift in Sources */,
+				1DE8B51228F6F59A7CFD79AD /* TrackEditorModel.swift in Sources */,
+				35610E278DC4971670CA8762 /* TrackEditorScene.swift in Sources */,
+				6BADAE321B958342296D1032 /* TrackEditorView.swift in Sources */,
+				256F8FEFCCED5B8B92FB72C8 /* TrackFileService.swift in Sources */,
+				ACF01A7B04BC3B89A20F7894 /* TrackModels.swift in Sources */,
+				0FE8E783E0E54C0F5EA977A2 /* TrackPath.swift in Sources */,
+				BC2DD4F25B277F4DAA939D5A /* TrackPathBuilder.swift in Sources */,
+				3DBDA6D795216E21C01B7A00 /* TrackSceneBuilder.swift in Sources */,
+				0FB367EDBE7C2F8725584CC1 /* TrackValidationSheet.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D022CA69BD4ABAF7B7CB6ABB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F18CA6B6B85D968D48B3BB5 /* ApexUITestSupport.swift in Sources */,
+				1189822588A56FBBA493D043 /* AppModelTests.swift in Sources */,
+				FA05F60503E9AF48EE6D51C7 /* AudioSmokeTests.swift in Sources */,
+				48FB27FB485D420E1A5FBB86 /* ChampionshipTests.swift in Sources */,
+				42416DC0EEEDFB9B191E396B /* ChampionshipUITests.swift in Sources */,
+				09BBF722DC13E2CD85C2F7E1 /* CloudAIServiceTests.swift in Sources */,
+				E4C9D2785BF1032317FEE8BE /* GameCenterAndResultsUITests.swift in Sources */,
+				6D3D90F1013125366F369500 /* GarageUITests.swift in Sources */,
+				554EC73FFF3BA3E61774E180 /* MainMenuUITests.swift in Sources */,
+				9B997151DF038D266D0EE00B /* MenuCommandTests.swift in Sources */,
+				D32FD5C889604BE8ECADFF78 /* PhysicsTests.swift in Sources */,
+				B7B9ABE2DE3031534EF3A6A6 /* RaceHUDAndOverlayUITests.swift in Sources */,
+				825EBD10358649A4C1FB1129 /* RaceSetupUITests.swift in Sources */,
+				33421B3CB1D319B04C02F12C /* SceneSmokeTests.swift in Sources */,
+				D4D5ECC12576C6B138ADA918 /* SerializationTests.swift in Sources */,
+				1B430CCD5F65BEC9EE5819D1 /* SettingsUITests.swift in Sources */,
+				EE62B1C08F5EFFA24E962A47 /* TestSupport.swift in Sources */,
+				C7FA98C7571BA6ECC5442607 /* TrackEditorUITests.swift in Sources */,
+				BE185A5A74F5F36217A16484 /* TrackPathTests.swift in Sources */,
+				A51BAA3EE4EC8B661AF98C21 /* UIScreenSnapshotTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3C1786635E03B6C0C6ECF857 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AA2183C09F43BBE873C1062 /* ApexSlotRacing */;
+			targetProxy = 63E6D027E2FB219E602D0F71 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		26254415A7C29FFD1846F0EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sid.ApexSlotRacingTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ApexSlotRacing.app/Contents/MacOS/ApexSlotRacing";
+			};
+			name = Release;
+		};
+		32EBFF9810753288E92E4818 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		698A195D7BCED89F07FA5425 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A928F0292DD87B50B90C2A3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sid.ApexSlotRacingTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ApexSlotRacing.app/Contents/MacOS/ApexSlotRacing";
+			};
+			name = Debug;
+		};
+		D6651713043E5FF7A070ED84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				CODE_SIGN_ENTITLEMENTS = ApexSlotRacing/Support/ApexSlotRacing.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				INFOPLIST_FILE = ApexSlotRacing/Support/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sid.ApexSlotRacing;
+				PRODUCT_NAME = ApexSlotRacing;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E6A20AC6FC0389FFD791CEBD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				CODE_SIGN_ENTITLEMENTS = ApexSlotRacing/Support/ApexSlotRacing.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				INFOPLIST_FILE = ApexSlotRacing/Support/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sid.ApexSlotRacing;
+				PRODUCT_NAME = ApexSlotRacing;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		059B9A8456AB9F94562E3857 /* Build configuration list for PBXProject "ApexSlotRacing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				698A195D7BCED89F07FA5425 /* Debug */,
+				32EBFF9810753288E92E4818 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		0863F83B97E3174BF20140FF /* Build configuration list for PBXNativeTarget "ApexSlotRacing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D6651713043E5FF7A070ED84 /* Debug */,
+				E6A20AC6FC0389FFD791CEBD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F112F3ABC6A2CB8AE55039E2 /* Build configuration list for PBXNativeTarget "ApexSlotRacingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A928F0292DD87B50B90C2A3A /* Debug */,
+				26254415A7C29FFD1846F0EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 12DBB197BBD9ACC5DD733791 /* Project object */;
+}

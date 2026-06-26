@@ -1,0 +1,60 @@
+{
+  "createdAt" : "1970-01-01T00:50:00Z",
+  "environment" : "dusk",
+  "id" : "33333333-3333-3333-3333-333333333333",
+  "isBuiltIn" : true,
+  "laneCount" : 2,
+  "name" : "Loop 360",
+  "pieces" : [
+    {
+      "id" : "B3775CD6-5D9C-40A2-A8ED-9D75A6F561B9",
+      "kind" : "startFinish",
+      "length" : 6,
+      "mirrored" : false
+    },
+    {
+      "id" : "8A4B49B2-E8D0-47B7-B71F-F1A6572F45CD",
+      "kind" : "curveSharp90",
+      "mirrored" : false,
+      "radius" : 2
+    },
+    {
+      "id" : "5C7127E7-A2DA-4611-9B0F-9CF21CB2F575",
+      "kind" : "loop360",
+      "length" : 4,
+      "mirrored" : false
+    },
+    {
+      "id" : "09056AEB-62C8-48C3-8E4B-D20F1BC8FF71",
+      "kind" : "curveSharp90",
+      "mirrored" : false,
+      "radius" : 2
+    },
+    {
+      "id" : "B669A2C8-8C51-48FF-8375-5272F609791C",
+      "kind" : "bridge",
+      "length" : 6,
+      "mirrored" : false
+    },
+    {
+      "id" : "872555A2-0201-4585-84F9-176DB25E73E7",
+      "kind" : "curveSharp90",
+      "mirrored" : false,
+      "radius" : 2
+    },
+    {
+      "id" : "71820F38-595D-4363-8BD3-E01151BDF2F3",
+      "kind" : "straightShort",
+      "length" : 4,
+      "mirrored" : false
+    },
+    {
+      "id" : "720EC81B-51A1-4A4A-8023-FBC2A7369C88",
+      "kind" : "curveSharp90",
+      "mirrored" : false,
+      "radius" : 2
+    }
+  ],
+  "schemaVersion" : 1,
+  "updatedAt" : "1970-01-01T00:50:00Z"
+}

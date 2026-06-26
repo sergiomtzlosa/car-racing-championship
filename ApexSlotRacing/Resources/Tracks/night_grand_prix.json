@@ -1,0 +1,66 @@
+{
+  "createdAt" : "1970-01-01T01:06:40Z",
+  "environment" : "night",
+  "id" : "44444444-4444-4444-4444-444444444444",
+  "isBuiltIn" : true,
+  "laneCount" : 2,
+  "name" : "Night Grand Prix",
+  "pieces" : [
+    {
+      "id" : "A6FA0031-273C-420F-A59B-022A09DE6256",
+      "kind" : "startFinish",
+      "length" : 6,
+      "mirrored" : false
+    },
+    {
+      "id" : "0821EA07-E07F-4659-B415-D09384A07FF3",
+      "kind" : "chicane",
+      "length" : 4,
+      "mirrored" : false
+    },
+    {
+      "id" : "3D2D875C-D037-49A4-A558-81F1C735A96A",
+      "kind" : "curveWide90",
+      "mirrored" : false,
+      "radius" : 3
+    },
+    {
+      "id" : "B8ECEFF0-9E46-4DB3-AF8D-F3F192181B29",
+      "kind" : "straightShort",
+      "length" : 4,
+      "mirrored" : false
+    },
+    {
+      "id" : "2D6FE58B-357F-41E7-A2C7-EB3CAF510237",
+      "kind" : "curveWide90",
+      "mirrored" : false,
+      "radius" : 3
+    },
+    {
+      "id" : "043ED4A8-A80D-43A9-B9CC-BED5B92E817C",
+      "kind" : "bridge",
+      "length" : 10,
+      "mirrored" : false
+    },
+    {
+      "id" : "A0C50962-1AD8-4DED-8381-51A7FF2E1311",
+      "kind" : "curveWide90",
+      "mirrored" : false,
+      "radius" : 3
+    },
+    {
+      "id" : "A0538FE0-4F92-4F76-921D-0E924DF08BBE",
+      "kind" : "crossover",
+      "length" : 4,
+      "mirrored" : false
+    },
+    {
+      "id" : "9990C6FD-F4CC-4959-961E-97266BBDFE27",
+      "kind" : "curveWide90",
+      "mirrored" : false,
+      "radius" : 3
+    }
+  ],
+  "schemaVersion" : 1,
+  "updatedAt" : "1970-01-01T01:06:40Z"
+}
