@@ -471,11 +471,67 @@ struct AppSettings: Codable, Equatable {
     var graphicsQuality: GraphicsQuality = .high
     var defaultCamera: CameraMode = .thirdPerson
     var cloudAIEnabled: Bool = false
-    var cloudAIURL: String = "http://127.0.0.1:8787/v1/drive"
+    var cloudAIProvider: CloudAIProvider = .direct
+    var cloudAIURL: String = CloudAIProvider.direct.defaultURL
+    var cloudAIModel: String = CloudAIProvider.openAI.defaultModel
+    /// Transient session value. It is persisted in the macOS Keychain by
+    /// `AppModel`, never in the settings JSON or `UserDefaults`.
+    var cloudAIToken: String = ""
     var reduceMotion: Bool = false
     var showFPS: Bool = false
 
     static let `default` = AppSettings()
+
+    init() {}
+
+    private enum CodingKeys: String, CodingKey {
+        case masterVolume
+        case musicVolume
+        case sfxVolume
+        case engineVolume
+        case graphicsQuality
+        case defaultCamera
+        case cloudAIEnabled
+        case cloudAIProvider
+        case cloudAIURL
+        case cloudAIModel
+        case reduceMotion
+        case showFPS
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        let defaults = AppSettings()
+        masterVolume = try values.decodeIfPresent(Double.self, forKey: .masterVolume) ?? defaults.masterVolume
+        musicVolume = try values.decodeIfPresent(Double.self, forKey: .musicVolume) ?? defaults.musicVolume
+        sfxVolume = try values.decodeIfPresent(Double.self, forKey: .sfxVolume) ?? defaults.sfxVolume
+        engineVolume = try values.decodeIfPresent(Double.self, forKey: .engineVolume) ?? defaults.engineVolume
+        graphicsQuality = try values.decodeIfPresent(GraphicsQuality.self, forKey: .graphicsQuality) ?? defaults.graphicsQuality
+        defaultCamera = try values.decodeIfPresent(CameraMode.self, forKey: .defaultCamera) ?? defaults.defaultCamera
+        cloudAIEnabled = try values.decodeIfPresent(Bool.self, forKey: .cloudAIEnabled) ?? defaults.cloudAIEnabled
+        cloudAIProvider = try values.decodeIfPresent(CloudAIProvider.self, forKey: .cloudAIProvider) ?? defaults.cloudAIProvider
+        cloudAIURL = try values.decodeIfPresent(String.self, forKey: .cloudAIURL) ?? defaults.cloudAIURL
+        cloudAIModel = try values.decodeIfPresent(String.self, forKey: .cloudAIModel) ?? defaults.cloudAIModel
+        reduceMotion = try values.decodeIfPresent(Bool.self, forKey: .reduceMotion) ?? defaults.reduceMotion
+        showFPS = try values.decodeIfPresent(Bool.self, forKey: .showFPS) ?? defaults.showFPS
+        cloudAIToken = ""
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var values = encoder.container(keyedBy: CodingKeys.self)
+        try values.encode(masterVolume, forKey: .masterVolume)
+        try values.encode(musicVolume, forKey: .musicVolume)
+        try values.encode(sfxVolume, forKey: .sfxVolume)
+        try values.encode(engineVolume, forKey: .engineVolume)
+        try values.encode(graphicsQuality, forKey: .graphicsQuality)
+        try values.encode(defaultCamera, forKey: .defaultCamera)
+        try values.encode(cloudAIEnabled, forKey: .cloudAIEnabled)
+        try values.encode(cloudAIProvider, forKey: .cloudAIProvider)
+        try values.encode(cloudAIURL, forKey: .cloudAIURL)
+        try values.encode(cloudAIModel, forKey: .cloudAIModel)
+        try values.encode(reduceMotion, forKey: .reduceMotion)
+        try values.encode(showFPS, forKey: .showFPS)
+    }
 }
 
 enum GraphicsQuality: String, Codable, CaseIterable, Identifiable {

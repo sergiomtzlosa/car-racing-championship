@@ -6,7 +6,9 @@ final class AppModelTests: XCTestCase {
     func testRecordingARaceIsIdempotentAndAwardsUnlocksOnce() throws {
         let directory = try TestSupport.temporaryDirectory()
         defer { try? FileManager.default.removeItem(at: directory) }
-        let app = AppModel(saveStore: SaveStore(rootURL: directory), authenticateGameCenter: false)
+        let app = AppModel(saveStore: SaveStore(rootURL: directory),
+                          authenticateGameCenter: false,
+                          cloudTokenStore: InMemoryCloudAITokenStore())
 
         let track = TrackCatalog.sunsetSpeedway
         let config = TestSupport.config(track: track, mode: .quick, laps: 2)
@@ -40,7 +42,9 @@ final class AppModelTests: XCTestCase {
     func testTestDriveDoesNotChangeCareerStats() throws {
         let directory = try TestSupport.temporaryDirectory()
         defer { try? FileManager.default.removeItem(at: directory) }
-        let app = AppModel(saveStore: SaveStore(rootURL: directory), authenticateGameCenter: false)
+        let app = AppModel(saveStore: SaveStore(rootURL: directory),
+                          authenticateGameCenter: false,
+                          cloudTokenStore: InMemoryCloudAITokenStore())
 
         let track = TrackCatalog.starterLayout()
         let config = RaceConfig(mode: .quick,

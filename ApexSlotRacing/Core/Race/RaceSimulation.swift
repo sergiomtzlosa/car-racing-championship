@@ -106,6 +106,7 @@ final class RaceSimulation {
     private let cloudLock = NSLock()
     private var cloudControl: RaceInput?
     private var cloudLastSeen: Date = .distantPast
+    private var cloudControlMaximumAge: TimeInterval = 0.65
     private var phaseBeforePause: RacePhase = .racing
 
     init(builtTrack: BuiltTrack, config: RaceConfig, seed: UInt64 = 0xA9E7) {
@@ -207,11 +208,12 @@ final class RaceSimulation {
         }
     }
 
-    func setCloudControl(throttle: Float?, brake: Float?) {
+    func setCloudControl(throttle: Float?, brake: Float?, maxAge: TimeInterval = 0.65) {
         cloudLock.lock()
         if let throttle, let brake {
             cloudControl = RaceInput(throttle: throttle, brake: brake, boost: false)
             cloudLastSeen = Date()
+            cloudControlMaximumAge = max(0, maxAge)
             aiMode = "CLOUD AI"
         } else {
             cloudControl = nil
@@ -293,7 +295,7 @@ final class RaceSimulation {
                                      gap: gap)
             car.aiDriver = driver
             cloudLock.lock()
-            if let cloud = cloudControl, Date().timeIntervalSince(cloudLastSeen) < 0.65 {
+            if let cloud = cloudControl, Date().timeIntervalSince(cloudLastSeen) < cloudControlMaximumAge {
                 driveInput.throttle = cloud.throttle
                 driveInput.brake = cloud.brake
                 aiMode = "CLOUD AI"

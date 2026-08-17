@@ -630,15 +630,20 @@ final class RaceSceneController: NSObject, SCNSceneRendererDelegate {
 
     private func startCloudLoopIfNeeded() {
         guard settings.cloudAIEnabled else { return }
-        let endpoint = settings.cloudAIURL
+        let configuration = CloudAIConfiguration(settings: settings)
+        let interval = configuration.provider.pollIntervalNanoseconds
+        let maximumAge = configuration.provider.cloudControlMaximumAge
         cloudTask = Task { [weak self] in
             while !Task.isCancelled {
-                try? await Task.sleep(nanoseconds: 220_000_000)
+                try? await Task.sleep(nanoseconds: interval)
                 guard let self, !Task.isCancelled else { return }
                 let snapshot = self.cloudSnapshot.withLock { $0 }
                 guard let snapshot else { continue }
-                if let response = await self.cloudService.predict(endpoint: endpoint, telemetry: snapshot) {
-                    self.simulation.setCloudControl(throttle: Float(response.throttle), brake: Float(response.brake))
+                if let response = await self.cloudService.predict(configuration: configuration,
+                                                                  telemetry: snapshot) {
+                    self.simulation.setCloudControl(throttle: Float(response.throttle),
+                                                    brake: Float(response.brake),
+                                                    maxAge: maximumAge)
                 } else {
                     self.simulation.setCloudControl(throttle: nil, brake: nil)
                 }

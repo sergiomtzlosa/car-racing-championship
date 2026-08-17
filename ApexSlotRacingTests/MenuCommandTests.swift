@@ -5,7 +5,7 @@ import XCTest
 @MainActor
 final class MenuCommandTests: ApexUITestCase {
     func testEveryMenuCommandHasATitleShortcutAndAction() {
-        XCTAssertEqual(ApexMenuCommand.allCases.count, 7)
+        XCTAssertEqual(ApexMenuCommand.allCases.count, 8)
 
         let expectations: [(ApexMenuCommand, String, String, EventModifiers)] = [
             (.quickRace, "Quick Race", "n", [.command]),
@@ -14,7 +14,8 @@ final class MenuCommandTests: ApexUITestCase {
             (.garage, "Garage", "g", [.command]),
             (.trackEditor, "Track Editor", "e", [.command]),
             (.mainMenu, "Main Menu", "m", [.command, .shift]),
-            (.mute, "Mute Audio", "m", [.command, .option])
+            (.mute, "Mute Audio", "m", [.command, .option]),
+            (.help, "Apex Slot Racing Help", "?", [.command])
         ]
 
         for (command, title, key, modifiers) in expectations {
@@ -52,5 +53,11 @@ final class MenuCommandTests: ApexUITestCase {
         XCTAssertNotEqual(app.isMuted, initialMute)
         ApexMenuCommand.mute.perform(on: app)
         XCTAssertEqual(app.isMuted, initialMute)
+
+        var helpRequests = 0
+        app.helpPresentation = { helpRequests += 1 }
+        ApexMenuCommand.help.perform(on: app)
+        XCTAssertEqual(helpRequests, 1)
+        app.helpPresentation = nil
     }
 }

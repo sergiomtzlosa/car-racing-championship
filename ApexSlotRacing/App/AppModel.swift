@@ -29,16 +29,26 @@ final class AppModel: ObservableObject {
     let saveStore: SaveStore
     let gameCenter: GameCenterService
     let networkMonitor: NetworkMonitor
+    let cloudTokenStore: CloudAITokenStoring
     private let cloudAI: CloudAIService
 
-    init(saveStore: SaveStore = .shared, authenticateGameCenter: Bool = true) {
+    /// Injectable presentation hook so menu and accessibility tests can verify
+    /// the Help action without opening a second native window.
+    var helpPresentation: (() -> Void)?
+
+    init(saveStore: SaveStore = .shared,
+         authenticateGameCenter: Bool = true,
+         cloudTokenStore: CloudAITokenStoring = KeychainCloudAITokenStore()) {
         self.saveStore = saveStore
         self.profile = saveStore.loadProfile()
-        self.settings = SettingsStore.load()
+        var loadedSettings = SettingsStore.load()
+        loadedSettings.cloudAIToken = cloudTokenStore.loadToken()
+        self.settings = loadedSettings
         self.customTracks = saveStore.loadCustomTracks()
         self.championship = saveStore.loadChampionship()
         self.gameCenter = GameCenterService()
         self.networkMonitor = NetworkMonitor()
+        self.cloudTokenStore = cloudTokenStore
         self.cloudAI = CloudAIService()
 
         AudioDirector.shared.apply(settings: settings)
@@ -107,6 +117,14 @@ final class AppModel: ObservableObject {
 
     func openGameCenter() {
         route = .gameCenter
+    }
+
+    func showHelp() {
+        if let helpPresentation {
+            helpPresentation()
+            return
+        }
+        HelpWindowController.shared.showHelp()
     }
 
     // MARK: - Race entry
@@ -398,8 +416,12 @@ final class AppModel: ObservableObject {
     // MARK: - Settings and data
 
     func updateSettings(_ settings: AppSettings) {
+        let tokenChanged = settings.cloudAIToken != self.settings.cloudAIToken
         self.settings = settings
         SettingsStore.save(settings)
+        if tokenChanged {
+            cloudTokenStore.saveToken(settings.cloudAIToken)
+        }
         AudioDirector.shared.apply(settings: settings)
     }
 
@@ -414,8 +436,9 @@ final class AppModel: ObservableObject {
         isMuted = value
     }
 
-    func testCloudAI(endpoint: String? = nil) async -> Bool {
-        await cloudAI.testConnection(endpoint: endpoint ?? settings.cloudAIURL)
+    func testCloudAI(configuration: CloudAIConfiguration? = nil) async -> Bool {
+        let configuration = configuration ?? CloudAIConfiguration(settings: settings)
+        return await cloudAI.testConnection(configuration: configuration)
     }
 
     func unlockAll() {
@@ -429,6 +452,7 @@ final class AppModel: ObservableObject {
         championship = nil
         SettingsStore.save(.default)
         settings = .default
+        cloudTokenStore.deleteToken()
         saveStore.saveProfile(profile)
         saveStore.saveChampionship(nil)
         for track in customTracks {

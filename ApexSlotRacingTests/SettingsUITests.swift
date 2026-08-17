@@ -18,6 +18,7 @@ final class SettingsUITests: ApexUITestCase {
                            "settings.showFPS",
                            "settings.reduceMotion",
                            "settings.cloudEnabled",
+                           "settings.cloudProvider",
                            "settings.cloudURL",
                            "settings.testCloud",
                            "settings.gameCenterSignIn",
@@ -84,6 +85,68 @@ final class SettingsUITests: ApexUITestCase {
 
         ui.press("settings.cloudEnabled")
         XCTAssertFalse(app.settings.cloudAIEnabled)
+    }
+
+    func testOpenAICompatibleFieldsPresetsAndTokenStorage() {
+        show(SettingsView())
+
+        XCTAssertFalse(app.settings.cloudAIEnabled)
+        XCTAssertFalse(ui.exists("settings.cloudToken"))
+        XCTAssertFalse(ui.exists("settings.cloudModel"))
+
+        ui.pressOption(in: "settings.cloudProvider", label: "OpenAI-compatible")
+        XCTAssertTrue(waitUntil { self.app.settings.cloudAIProvider == .openAI })
+        XCTAssertTrue(ui.exists("settings.cloudToken"))
+        XCTAssertTrue(ui.exists("settings.cloudModel"))
+        XCTAssertEqual(app.settings.cloudAIURL, CloudAIProvider.openAI.defaultURL)
+
+        for identifier in ["settings.preset.opencode",
+                           "settings.preset.localMock",
+                           "settings.preset.openAI",
+                           "settings.cloudModelPresets"] {
+            XCTAssertTrue(ui.exists(identifier), "Missing \(identifier)")
+        }
+
+        ui.setText("settings.cloudModel", to: "my-model")
+        XCTAssertTrue(waitUntil { self.app.settings.cloudAIModel == "my-model" })
+
+        ui.setText("settings.cloudToken", to: "sk-test-token")
+        XCTAssertTrue(waitUntil { self.app.settings.cloudAIToken == "sk-test-token" })
+        XCTAssertEqual(tokenStore.loadToken(), "sk-test-token")
+
+        ui.press("settings.preset.opencode")
+        XCTAssertTrue(waitUntil {
+            self.app.settings.cloudAIURL == CloudAIModelPresets.openCodeEndpoint
+        })
+        XCTAssertEqual(app.settings.cloudAIProvider, .openAI)
+        XCTAssertTrue(CloudAIModelPresets.openCodeFreeModels.contains {
+            $0.model == self.app.settings.cloudAIModel
+        })
+
+        ui.press("settings.preset.localMock")
+        XCTAssertTrue(waitUntil {
+            self.app.settings.cloudAIURL == CloudAIModelPresets.localMock.endpoint
+        })
+        XCTAssertEqual(app.settings.cloudAIModel, CloudAIModelPresets.localMock.model)
+
+        ui.pressOption(in: "settings.cloudProvider", label: "Direct JSON")
+        XCTAssertTrue(waitUntil { self.app.settings.cloudAIProvider == .direct })
+        XCTAssertEqual(app.settings.cloudAIURL, CloudAIProvider.direct.defaultURL)
+    }
+
+    func testOpenAITestConnectionFailsOverPromptly() {
+        show(SettingsView())
+
+        ui.press("settings.cloudEnabled")
+        ui.pressOption(in: "settings.cloudProvider", label: "OpenAI-compatible")
+        XCTAssertTrue(waitUntil { self.app.settings.cloudAIProvider == .openAI })
+
+        ui.setText("settings.cloudURL", to: "http://127.0.0.1:1/v1/chat/completions")
+        ui.setText("settings.cloudModel", to: "mock-model")
+        ui.press("settings.testCloud")
+        XCTAssertTrue(waitUntil(timeout: 5) {
+            (self.ui.value("settings.cloudStatus") ?? "").contains("NO RESPONSE")
+        }, "OpenAI cloud test did not fail over, status: \(ui.value("settings.cloudStatus") ?? "nil")")
     }
 
     func testResetAlertCanCancelThenResetEverything() {

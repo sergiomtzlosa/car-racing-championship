@@ -15,6 +15,7 @@ final class MainMenuUITests: ApexUITestCase {
                            "menu.settings",
                            "menu.gameCenter",
                            "menu.heroGarage",
+                           "menu.help",
                            "menu.quit"] {
             XCTAssertTrue(ui.exists(identifier), "Missing \(identifier)")
         }
@@ -42,6 +43,13 @@ final class MainMenuUITests: ApexUITestCase {
 
         ui.press("menu.heroGarage")
         XCTAssertEqual(app.route, .garage)
+
+        var helpRequests = 0
+        app.helpPresentation = { helpRequests += 1 }
+        ui.press("menu.help")
+        XCTAssertEqual(helpRequests, 1)
+        XCTAssertEqual(app.route, .garage)
+        app.helpPresentation = nil
     }
 
     func testMenuReflectsProfileAndChampionshipSummary() {

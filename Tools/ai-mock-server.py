@@ -5,14 +5,16 @@ Run from the repository root:
 
     python3 Tools/ai-mock-server.py --port 8787
 
-Then enable Cloud AI in Settings -> Cloud AI and use:
+The same server exposes both supported transports:
 
-    http://127.0.0.1:8787/v1/drive
+    Direct JSON:          http://127.0.0.1:8787/v1/drive
+    OpenAI-compatible:    http://127.0.0.1:8787/v1/chat/completions
 
-The server intentionally uses only the Python standard library. It accepts the
-same telemetry payload as the real service and returns a conservative local
-safe-speed policy. The game always keeps its local AI active underneath, so
-stopping this server should never interrupt a race.
+Enable Cloud AI in Settings -> Cloud AI, choose the matching connection style
+and use the endpoint above. The server intentionally uses only the Python
+standard library. It returns a conservative local safe-speed policy. The game
+always keeps its local AI active underneath, so stopping this server should
+never interrupt a race.
 """
 
 from __future__ import annotations
@@ -21,8 +23,12 @@ import argparse
 import json
 import math
 import time
+import uuid
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from typing import Any
+
+
+SYSTEM_PROMPT_MARKER = "Apex Slot Racing"
 
 
 def _clamp(value: float, low: float, high: float) -> float:
@@ -70,8 +76,34 @@ def make_decision(payload: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _extract_chat_telemetry(payload: dict[str, Any]) -> dict[str, Any]:
+    messages = payload.get("messages")
+    if not isinstance(messages, list) or not messages:
+        raise ValueError("messages must be a non-empty array")
+    user_content: str | None = None
+    for message in reversed(messages):
+        if not isinstance(message, dict):
+            continue
+        if message.get("role") != "user":
+            continue
+        content = message.get("content")
+        if isinstance(content, str):
+            user_content = content
+            break
+        if isinstance(content, list):
+            parts = [part.get("text", "") for part in content if isinstance(part, dict)]
+            user_content = "".join(parts)
+            break
+    if not user_content:
+        raise ValueError("no user telemetry message found")
+    telemetry = json.loads(user_content)
+    if not isinstance(telemetry, dict):
+        raise ValueError("telemetry must be a JSON object")
+    return telemetry
+
+
 class Handler(BaseHTTPRequestHandler):
-    server_version = "ApexSlotRacingMockAI/1.0"
+    server_version = "ApexSlotRacingMockAI/1.1"
 
     def _write_json(self, status: int, value: dict[str, Any]) -> None:
         body = json.dumps(value, separators=(",", ":")).encode("utf-8")
@@ -80,7 +112,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header("Content-Length", str(len(body)))
         self.send_header("Cache-Control", "no-store")
         self.send_header("Access-Control-Allow-Origin", "*")
-        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type, Authorization")
         self.end_headers()
         self.wfile.write(body)
 
@@ -88,17 +120,24 @@ class Handler(BaseHTTPRequestHandler):
         self.send_response(204)
         self.send_header("Access-Control-Allow-Origin", "*")
         self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
-        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type, Authorization")
         self.end_headers()
 
     def do_GET(self) -> None:  # noqa: N802
         if self.path in ("/health", "/v1/health"):
-            self._write_json(200, {"ok": True, "service": "apex-cloud-ai-mock", "time": time.time()})
+            self._write_json(200, {
+                "ok": True,
+                "service": "apex-cloud-ai-mock",
+                "transports": ["/v1/drive", "/v1/chat/completions"],
+                "time": time.time(),
+            })
         else:
             self._write_json(404, {"error": "not_found", "path": self.path})
 
     def do_POST(self) -> None:  # noqa: N802
-        if self.path not in ("/v1/drive", "/drive"):
+        is_direct = self.path in ("/v1/drive", "/drive")
+        is_chat = self.path in ("/v1/chat/completions", "/chat/completions")
+        if not is_direct and not is_chat:
             self._write_json(404, {"error": "not_found", "path": self.path})
             return
         try:
@@ -113,8 +152,38 @@ class Handler(BaseHTTPRequestHandler):
             self._write_json(400, {"error": "invalid_json", "detail": str(exc)})
             return
 
-        decision = make_decision(payload)
-        self._write_json(200, decision)
+        if is_direct:
+            self._write_json(200, make_decision(payload))
+            return
+
+        try:
+            telemetry = _extract_chat_telemetry(payload)
+            decision = make_decision(telemetry)
+        except (ValueError, TypeError, json.JSONDecodeError) as exc:
+            self._write_json(400, {"error": "invalid_chat_payload", "detail": str(exc)})
+            return
+
+        model = payload.get("model") or "mock-racer"
+        created = int(time.time())
+        self._write_json(200, {
+            "id": f"chatcmpl-mock-{uuid.uuid4().hex[:12]}",
+            "object": "chat.completion",
+            "created": created,
+            "model": model,
+            "choices": [{
+                "index": 0,
+                "message": {
+                    "role": "assistant",
+                    "content": json.dumps(decision, separators=(",", ":")),
+                },
+                "finish_reason": "stop",
+            }],
+            "usage": {
+                "prompt_tokens": 64,
+                "completion_tokens": 24,
+                "total_tokens": 88,
+            },
+        })
 
     def log_message(self, fmt: str, *args: Any) -> None:
         # Keep stdout useful when demonstrating the server in a terminal.
@@ -129,7 +198,7 @@ def main() -> None:
 
     server = ThreadingHTTPServer((args.host, args.port), Handler)
     print(f"Apex Slot Racing mock AI listening on http://{args.host}:{args.port}")
-    print("POST /v1/drive  |  GET /health  |  Ctrl-C to stop")
+    print("POST /v1/drive | POST /v1/chat/completions | GET /health | Ctrl-C to stop")
     try:
         server.serve_forever()
     except KeyboardInterrupt:

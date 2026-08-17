@@ -470,6 +470,7 @@ class ApexUITestCase: XCTestCase {
     var app: AppModel!
     var saveStore: SaveStore!
     var temporaryDirectory: URL!
+    var tokenStore: InMemoryCloudAITokenStore!
 
     private var settingsKey = "apexSlotRacing.settings.v1"
     private var settingsBackup: Data?
@@ -490,7 +491,10 @@ class ApexUITestCase: XCTestCase {
 
         AudioDirector.shared.endRace()
         AudioDirector.shared.setMuted(false)
-        app = AppModel(saveStore: saveStore, authenticateGameCenter: false)
+        tokenStore = InMemoryCloudAITokenStore()
+        app = AppModel(saveStore: saveStore,
+                       authenticateGameCenter: false,
+                       cloudTokenStore: tokenStore)
         ui.showPlaceholder(app: app)
     }
 
@@ -507,6 +511,7 @@ class ApexUITestCase: XCTestCase {
         app = nil
         saveStore = nil
         temporaryDirectory = nil
+        tokenStore = nil
         super.tearDown()
     }
 

@@ -53,6 +53,20 @@ struct SettingsView: View {
         .onChange(of: local.cloudAIEnabled) { _, _ in
             if cloudTestState != .testing { cloudTestState = .idle }
         }
+        .onChange(of: local.cloudAIProvider) { oldValue, newValue in
+            if cloudTestState != .testing { cloudTestState = .idle }
+            guard oldValue != newValue else { return }
+            if newValue == .openAI {
+                if !local.cloudAIURL.contains("/chat/completions") {
+                    local.cloudAIURL = newValue.defaultURL
+                }
+                if local.cloudAIModel.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    local.cloudAIModel = newValue.defaultModel
+                }
+            } else if !local.cloudAIURL.contains("/v1/drive") {
+                local.cloudAIURL = newValue.defaultURL
+            }
+        }
         .alert("Reset all local data?", isPresented: $showResetConfirm) {
             Button("Cancel", role: .cancel) {}
             Button("Reset Everything", role: .destructive) {
@@ -192,11 +206,22 @@ struct SettingsView: View {
                 .accessibilityIdentifier("settings.cloudEnabled")
 
                 VStack(alignment: .leading, spacing: 5) {
-                    Text("ENDPOINT URL")
-                        .font(.system(size: 8, weight: .bold, design: .rounded))
-                        .tracking(1.1)
-                        .foregroundStyle(Theme.muted)
-                    TextField("https://your-ai.example/v1/drive", text: $local.cloudAIURL)
+                    fieldLabel("CONNECTION STYLE")
+                    Picker("Connection style", selection: $local.cloudAIProvider) {
+                        ForEach(CloudAIProvider.allCases) { provider in
+                            Text(provider.displayName).tag(provider)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    .labelsHidden()
+                    .tint(Theme.teal)
+                    .accessibilityIdentifier("settings.cloudProvider")
+                }
+
+                VStack(alignment: .leading, spacing: 5) {
+                    fieldLabel(local.cloudAIProvider == .openAI ? "CHAT COMPLETIONS URL" : "ENDPOINT URL")
+                    TextField(local.cloudAIProvider.defaultURL,
+                              text: $local.cloudAIURL)
                         .textFieldStyle(.plain)
                         .font(.system(size: 10, weight: .medium, design: .monospaced))
                         .foregroundStyle(Theme.offWhite)
@@ -204,6 +229,95 @@ struct SettingsView: View {
                         .background(RoundedRectangle(cornerRadius: 8).fill(Color.black.opacity(0.35)))
                         .overlay(RoundedRectangle(cornerRadius: 8).strokeBorder(Theme.stroke, lineWidth: 1))
                         .accessibilityIdentifier("settings.cloudURL")
+                }
+
+                if local.cloudAIProvider.usesToken {
+                    VStack(alignment: .leading, spacing: 5) {
+                        fieldLabel("API TOKEN")
+                        SecureField("sk-… (stored in Keychain)",
+                                    text: $local.cloudAIToken)
+                            .textFieldStyle(.plain)
+                            .font(.system(size: 10, weight: .medium, design: .monospaced))
+                            .foregroundStyle(Theme.offWhite)
+                            .padding(10)
+                            .background(RoundedRectangle(cornerRadius: 8).fill(Color.black.opacity(0.35)))
+                            .overlay(RoundedRectangle(cornerRadius: 8).strokeBorder(Theme.stroke, lineWidth: 1))
+                            .accessibilityIdentifier("settings.cloudToken")
+                        Text("Tokens go to the macOS Keychain, never to UserDefaults.")
+                            .font(.system(size: 8, weight: .medium, design: .monospaced))
+                            .foregroundStyle(Theme.muted.opacity(0.8))
+                    }
+
+                    VStack(alignment: .leading, spacing: 5) {
+                        fieldLabel("MODEL")
+                        TextField(CloudAIProvider.openAI.defaultModel, text: $local.cloudAIModel)
+                            .textFieldStyle(.plain)
+                            .font(.system(size: 10, weight: .medium, design: .monospaced))
+                            .foregroundStyle(Theme.offWhite)
+                            .padding(10)
+                            .background(RoundedRectangle(cornerRadius: 8).fill(Color.black.opacity(0.35)))
+                            .overlay(RoundedRectangle(cornerRadius: 8).strokeBorder(Theme.stroke, lineWidth: 1))
+                            .accessibilityIdentifier("settings.cloudModel")
+                    }
+
+                    HStack(spacing: 6) {
+                        cloudPresetButton(title: "OPENCODE",
+                                          identifier: "settings.preset.opencode",
+                                          tint: Theme.teal) {
+                            applyCloudPreset(CloudAIModelPresets.openCode)
+                        }
+                        cloudPresetButton(title: "LOCAL MOCK",
+                                          identifier: "settings.preset.localMock",
+                                          tint: Theme.amber) {
+                            applyCloudPreset(CloudAIModelPresets.localMock)
+                        }
+                        cloudPresetButton(title: "OPENAI",
+                                          identifier: "settings.preset.openAI",
+                                          tint: Theme.orange) {
+                            applyCloudPreset(CloudAIModelPresets.openAI)
+                        }
+                    }
+
+                    Menu {
+                        ForEach(CloudAIModelPresets.openCodeFreeModels) { preset in
+                            Button {
+                                applyCloudPreset(preset)
+                            } label: {
+                                Text("\(preset.title) — \(preset.model)")
+                            }
+                        }
+                    } label: {
+                        HStack(spacing: 6) {
+                            Image(systemName: "sparkles")
+                                .font(.system(size: 9, weight: .semibold))
+                            Text("OPENCODE FREE MODEL PRESETS")
+                                .font(.system(size: 8, weight: .bold, design: .rounded))
+                                .tracking(0.8)
+                            Spacer()
+                            Image(systemName: "chevron.down")
+                                .font(.system(size: 8, weight: .bold))
+                        }
+                        .foregroundStyle(Theme.teal)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 8)
+                        .background(RoundedRectangle(cornerRadius: 8).fill(Theme.teal.opacity(0.08)))
+                        .overlay(RoundedRectangle(cornerRadius: 8).strokeBorder(Theme.teal.opacity(0.22), lineWidth: 1))
+                    }
+                    .menuStyle(.borderlessButton)
+                    .menuIndicator(.hidden)
+                    .accessibilityIdentifier("settings.cloudModelPresets")
+
+                    Text("OpenCode Zen free chat models are listed for convenience. OpenCode's documentation notes that free-tier chat models require the OpenCode client; direct API keys need paid/Go access. The local mock exercises the same protocol offline.")
+                        .font(.system(size: 8, weight: .medium, design: .rounded))
+                        .foregroundStyle(Theme.muted.opacity(0.82))
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+
+                if local.cloudAIProvider == .direct {
+                    Text("Direct mode sends the telemetry object to a local or hosted /v1/drive endpoint. No token or model field is required.")
+                        .font(.system(size: 8, weight: .medium, design: .rounded))
+                        .foregroundStyle(Theme.muted.opacity(0.82))
+                        .fixedSize(horizontal: false, vertical: true)
                 }
 
                 HStack(spacing: 9) {
@@ -228,11 +342,43 @@ struct SettingsView: View {
                     .accessibilityIdentifier("settings.testCloud")
                 }
 
-                Text("POST /v1/drive · 250 ms timeout · latest-response-wins · fallback is seamless. See README for the mock server protocol.")
+                Text("\(local.cloudAIProvider.protocolSummary) · only HTTPS or loopback HTTP · see README for the mock server protocol.")
                     .font(.system(size: 8, weight: .medium, design: .monospaced))
                     .foregroundStyle(Theme.muted.opacity(0.8))
             }
         }
+    }
+
+    private func fieldLabel(_ text: String) -> some View {
+        Text(text)
+            .font(.system(size: 8, weight: .bold, design: .rounded))
+            .tracking(1.1)
+            .foregroundStyle(Theme.muted)
+    }
+
+    private func cloudPresetButton(title: String,
+                                   identifier: String,
+                                   tint: Color,
+                                   action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Text(title)
+                .font(.system(size: 8, weight: .bold, design: .rounded))
+                .tracking(0.7)
+                .foregroundStyle(tint)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 8)
+                .background(RoundedRectangle(cornerRadius: 8).fill(tint.opacity(0.09)))
+                .overlay(RoundedRectangle(cornerRadius: 8).strokeBorder(tint.opacity(0.24), lineWidth: 1))
+        }
+        .buttonStyle(.plain)
+        .accessibilityIdentifier(identifier)
+    }
+
+    private func applyCloudPreset(_ preset: CloudAIModelPreset) {
+        local.cloudAIProvider = preset.provider
+        local.cloudAIURL = preset.endpoint
+        local.cloudAIModel = preset.model
+        if cloudTestState != .testing { cloudTestState = .idle }
     }
 
     private var gameCenterSection: some View {
@@ -397,9 +543,9 @@ struct SettingsView: View {
 
     private func testCloud() {
         cloudTestState = .testing
-        let endpoint = local.cloudAIURL
+        let configuration = CloudAIConfiguration(settings: local)
         Task {
-            let ok = await app.testCloudAI(endpoint: endpoint)
+            let ok = await app.testCloudAI(configuration: configuration)
             await MainActor.run {
                 cloudTestState = ok ? .success : .failure
             }

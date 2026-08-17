@@ -9,6 +9,7 @@ enum ApexMenuCommand: CaseIterable {
     case trackEditor
     case mainMenu
     case mute
+    case help
 
     func title(isMuted: Bool) -> String {
         switch self {
@@ -19,6 +20,7 @@ enum ApexMenuCommand: CaseIterable {
         case .trackEditor: return "Track Editor"
         case .mainMenu: return "Main Menu"
         case .mute: return isMuted ? "Unmute Audio" : "Mute Audio"
+        case .help: return "Apex Slot Racing Help"
         }
     }
 
@@ -31,6 +33,7 @@ enum ApexMenuCommand: CaseIterable {
         case .trackEditor: return "e"
         case .mainMenu: return "m"
         case .mute: return "m"
+        case .help: return "?"
         }
     }
 
@@ -42,6 +45,8 @@ enum ApexMenuCommand: CaseIterable {
             return [.command, .shift]
         case .mute:
             return [.command, .option]
+        case .help:
+            return [.command]
         }
     }
 
@@ -54,6 +59,7 @@ enum ApexMenuCommand: CaseIterable {
         case .trackEditor: app.openEditor()
         case .mainMenu: app.goToMenu()
         case .mute: app.toggleMute()
+        case .help: app.showHelp()
         }
     }
 }
@@ -100,6 +106,13 @@ struct ApexCommands: Commands {
             }
             .keyboardShortcut(ApexMenuCommand.mute.shortcutKey,
                               modifiers: ApexMenuCommand.mute.shortcutModifiers)
+        }
+        CommandGroup(replacing: .help) {
+            Button(ApexMenuCommand.help.title(isMuted: app.isMuted)) {
+                ApexMenuCommand.help.perform(on: app)
+            }
+            .keyboardShortcut(ApexMenuCommand.help.shortcutKey,
+                              modifiers: ApexMenuCommand.help.shortcutModifiers)
         }
     }
 }

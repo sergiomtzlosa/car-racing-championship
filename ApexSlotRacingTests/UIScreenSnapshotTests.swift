@@ -10,6 +10,7 @@ import XCTest
 final class UIScreenSnapshotTests: ApexUITestCase {
     func testEveryScreenRendersAtAuditedSizes() throws {
         try snap(MainMenuView(), name: "menu")
+        try snap(HelpView(), name: "help")
 
         app.openQuickSetup()
         try snap(RaceSetupView(mode: .quick), name: "quick-setup")

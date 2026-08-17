@@ -4,7 +4,7 @@ import SwiftUI
 @main
 struct ApexSlotRacingApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
-    @StateObject private var app = AppModel()
+    @StateObject private var app = ApexSlotRacingApp.makeAppModel()
 
     var body: some Scene {
         WindowGroup {
@@ -17,6 +17,22 @@ struct ApexSlotRacingApp: App {
         .commands {
             ApexCommands(app: app)
         }
+    }
+
+    private static var isRunningTests: Bool {
+        ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil
+            || NSClassFromString("XCTestCase") != nil
+    }
+
+    private static func makeAppModel() -> AppModel {
+        if isRunningTests {
+            // The test suite creates its own isolated AppModel instances. Keep
+            // the host process away from live Game Center and the login
+            // keychain so system shields never cover the accessibility tree.
+            return AppModel(authenticateGameCenter: false,
+                            cloudTokenStore: InMemoryCloudAITokenStore())
+        }
+        return AppModel()
     }
 }
 

@@ -15,6 +15,7 @@
 		1189822588A56FBBA493D043 /* AppModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74577093FC22E71AEFD83CF1 /* AppModelTests.swift */; };
 		12540782D5BDF8EF859C3D20 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38BFF52F04EEB5FD2279FE5 /* ResultsView.swift */; };
 		13A654A4DA96B23692E7F192 /* harbor_hairpins.json in Resources */ = {isa = PBXBuildFile; fileRef = 14E46DA8154ECCA1BA1BFE1E /* harbor_hairpins.json */; };
+		16DBE4EFD3E158F5F65A2208 /* CloudAIConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8C94A1109A2AB4E98B94B8 /* CloudAIConfigurationTests.swift */; };
 		185F0498D5BB0BD9D03E4FF9 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392D4FD5399F39DE3CE953D1 /* NetworkMonitor.swift */; };
 		18CCB227FA3D739C455024DC /* RaceSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B606C0A8CCF5EEFDF9016B7F /* RaceSetupView.swift */; };
 		1B430CCD5F65BEC9EE5819D1 /* SettingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C30F8BF364DECF03EB619A8 /* SettingsUITests.swift */; };
@@ -28,9 +29,11 @@
 		33421B3CB1D319B04C02F12C /* SceneSmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2751ED9FB6A584B0C0670824 /* SceneSmokeTests.swift */; };
 		35610E278DC4971670CA8762 /* TrackEditorScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C953EE91EC0109CF7155B19 /* TrackEditorScene.swift */; };
 		3763E636BE9E6802F04E2D74 /* HapticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08D49712984ED46836A4781 /* HapticsService.swift */; };
+		3954A7B6AE4B6AB9CDF733CB /* HelpWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684704AA000C15C2ADDE9CC /* HelpWindowController.swift */; };
 		3DBDA6D795216E21C01B7A00 /* TrackSceneBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25952090D066BC3F54ED0385 /* TrackSceneBuilder.swift */; };
 		42416DC0EEEDFB9B191E396B /* ChampionshipUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C181B090C4082ACBE15545A4 /* ChampionshipUITests.swift */; };
 		42648666206F306E90FDBE6C /* RaceSimulation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0083D3FCF9E8F43A8860B36 /* RaceSimulation.swift */; };
+		432A1D33979A10A4EFA8063A /* CloudAIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB40FA87FFBA97979361E57 /* CloudAIConfiguration.swift */; };
 		4819CC477189918CDE4F28B2 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD9784444DE6A93388588BD /* MainMenuView.swift */; };
 		48FB27FB485D420E1A5FBB86 /* ChampionshipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F9F2AADFBF36B531DD2E0F /* ChampionshipTests.swift */; };
 		4ABF15BA5D0026A8DEA76D36 /* AudioDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A285EF0205DCADBEEB4E766 /* AudioDirector.swift */; };
@@ -38,6 +41,7 @@
 		51869892D1A4D24212C9D0BF /* TextureFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AC89256876D6C67DB20CF6 /* TextureFactory.swift */; };
 		554EC73FFF3BA3E61774E180 /* MainMenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6977FFA38BE0C0539446B81F /* MainMenuUITests.swift */; };
 		58B15FC86469A73759F28444 /* RaceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAC5D52A0C8AFC95B6A7EA5 /* RaceModels.swift */; };
+		600E8542B22D34952FFE490C /* HelpContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C96B2AC793F80858A6CEA00 /* HelpContent.swift */; };
 		6603BC2F1E8257BFDEA16986 /* ClosurePathPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB561913FD87EA7186772D54 /* ClosurePathPlanner.swift */; };
 		67CF31223468EAE5C2F81391 /* SFXSynth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6E4151F07321D5AE92FFCA /* SFXSynth.swift */; };
 		69B61ED7D903FB9B58BB557B /* GameCenterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6FECF7444E07D90F29FFDC /* GameCenterService.swift */; };
@@ -47,6 +51,7 @@
 		6F18CA6B6B85D968D48B3BB5 /* ApexUITestSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D919075CB4171DE9E9E26B /* ApexUITestSupport.swift */; };
 		6F791424E9D805C18C481240 /* RaceSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7C4FCE4241087FC5F7B7F53 /* RaceSceneController.swift */; };
 		7134774589F0EFC008AD4060 /* ChampionshipDirector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3BB29103E06656BEA3936C /* ChampionshipDirector.swift */; };
+		7262FA245AB1B976BE3C61E4 /* CloudAITokenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B5C0AF2B5E789E1D733F05 /* CloudAITokenStore.swift */; };
 		751F480B960DB8D92F30D879 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B5A73D135A01F9C1BCF6626 /* GameController.framework */; };
 		7A30CB5FDAB01E0A5DD81571 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C15E3E6532BF48012B7497 /* AppModel.swift */; };
 		7B416BD742D53C14ABAC7D43 /* loop_360.json in Resources */ = {isa = PBXBuildFile; fileRef = 4FAEB0EED973DF13F701234A /* loop_360.json */; };
@@ -55,11 +60,13 @@
 		88BFBD45EF7B756E23FD9E65 /* SaveStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AACC39015B924D781E3E68 /* SaveStore.swift */; };
 		8A5BA3E5F4911DF52EE8BCFF /* AchievementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A510E849E24DE97DDAAC3B65 /* AchievementService.swift */; };
 		8BBE7D5250656E29622A7433 /* GarageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E00D3E42A98823A3EAE22C8 /* GarageView.swift */; };
+		8DBA257A04B9E84F549F1286 /* CloudAIControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7E03C13B13C6FC716F7F70 /* CloudAIControlTests.swift */; };
 		9B997151DF038D266D0EE00B /* MenuCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0BB36A08438AEE9D50C685 /* MenuCommandTests.swift */; };
 		9C421D0D34FBABCA7B3D7610 /* ShowcaseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCCA1876EFB1EC7E93A21F3 /* ShowcaseScene.swift */; };
 		9CC476EE9D8815592738E630 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E15F74AC113FA3E896D72F6 /* Theme.swift */; };
 		A4DAFF06706A7FEA9F4B1676 /* RaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FA993562182CFA999D829A /* RaceView.swift */; };
 		A51BAA3EE4EC8B661AF98C21 /* UIScreenSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5E40D267C67A8C4A2117B2 /* UIScreenSnapshotTests.swift */; };
+		A59182687FFDFDFD9E6AB2F7 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D238C242896D2445F639E7 /* HelpView.swift */; };
 		A8441555CE8640F5FE297761 /* MusicSynth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114286BA6AD9844BF892591 /* MusicSynth.swift */; };
 		AA13A3AC7B4162AEEC85229A /* sunset_speedway.json in Resources */ = {isa = PBXBuildFile; fileRef = 326E8BABC6E2CD81CC4E8430 /* sunset_speedway.json */; };
 		ACF01A7B04BC3B89A20F7894 /* TrackModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F1F65E29A8263A4038E5EE /* TrackModels.swift */; };
@@ -83,6 +90,7 @@
 		EE62B1C08F5EFFA24E962A47 /* TestSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA72763FD27BAB782B9A2C42 /* TestSupport.swift */; };
 		F27A50DB35CBE754ED75E86C /* MotorSynth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD527E323525595A5A274A5E /* MotorSynth.swift */; };
 		FA05F60503E9AF48EE6D51C7 /* AudioSmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756FFF10D4C93A1360AD89D3 /* AudioSmokeTests.swift */; };
+		FB09CE544DEA7ADD1F3B8DCB /* HelpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4E04629442B807DF49919D /* HelpUITests.swift */; };
 		FD8B151D931BD67C2FC4EBD4 /* night_grand_prix.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EE373DF02A40E209D67A889 /* night_grand_prix.json */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +112,7 @@
 		13FA993562182CFA999D829A /* RaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceView.swift; sourceTree = "<group>"; };
 		14E46DA8154ECCA1BA1BFE1E /* harbor_hairpins.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = harbor_hairpins.json; sourceTree = "<group>"; };
 		15732A82FB463757A04DA7EF /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		1684704AA000C15C2ADDE9CC /* HelpWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpWindowController.swift; sourceTree = "<group>"; };
 		1EA9AEE4FDE2315B6FC92827 /* AIDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIDriver.swift; sourceTree = "<group>"; };
 		25952090D066BC3F54ED0385 /* TrackSceneBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSceneBuilder.swift; sourceTree = "<group>"; };
 		25ACAC02ADD43B75764E61F6 /* CarSceneFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSceneFactory.swift; sourceTree = "<group>"; };
@@ -112,6 +121,7 @@
 		326E8BABC6E2CD81CC4E8430 /* sunset_speedway.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sunset_speedway.json; sourceTree = "<group>"; };
 		33753F833A41226ADB368D8E /* GarageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageUITests.swift; sourceTree = "<group>"; };
 		392D4FD5399F39DE3CE953D1 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		44D238C242896D2445F639E7 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		4EE373DF02A40E209D67A889 /* night_grand_prix.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = night_grand_prix.json; sourceTree = "<group>"; };
 		4FAEB0EED973DF13F701234A /* loop_360.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = loop_360.json; sourceTree = "<group>"; };
 		569CE53529A2CF72D351DDF0 /* ApexSlotRacing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApexSlotRacing.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,9 +132,11 @@
 		60BDC93270E1F3EBBF3CF016 /* PhysicsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsTests.swift; sourceTree = "<group>"; };
 		613F8F2437EFAD685F1563A1 /* RaceSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceSession.swift; sourceTree = "<group>"; };
 		62C0F014968642D7C9336B2E /* TrackPathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackPathTests.swift; sourceTree = "<group>"; };
+		65B5C0AF2B5E789E1D733F05 /* CloudAITokenStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudAITokenStore.swift; sourceTree = "<group>"; };
 		68AC89256876D6C67DB20CF6 /* TextureFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextureFactory.swift; sourceTree = "<group>"; };
 		6977FFA38BE0C0539446B81F /* MainMenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuUITests.swift; sourceTree = "<group>"; };
 		6C0AF7D5F265F3C6DF5709D6 /* TrackValidationSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackValidationSheet.swift; sourceTree = "<group>"; };
+		6C96B2AC793F80858A6CEA00 /* HelpContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpContent.swift; sourceTree = "<group>"; };
 		6DE67DB7BAFA2E110F8B849B /* TrackEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackEditorView.swift; sourceTree = "<group>"; };
 		70754987558A94E018177951 /* RaceSetupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceSetupUITests.swift; sourceTree = "<group>"; };
 		71473577267531984CC33707 /* TrackEditorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackEditorUITests.swift; sourceTree = "<group>"; };
@@ -142,6 +154,7 @@
 		966F24D51869E31EADC66C2C /* SerializationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializationTests.swift; sourceTree = "<group>"; };
 		96F9F2AADFBF36B531DD2E0F /* ChampionshipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionshipTests.swift; sourceTree = "<group>"; };
 		97589F1118D374C7E3CC387E /* RaceHUDAndOverlayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceHUDAndOverlayUITests.swift; sourceTree = "<group>"; };
+		9BB40FA87FFBA97979361E57 /* CloudAIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudAIConfiguration.swift; sourceTree = "<group>"; };
 		9C30F8BF364DECF03EB619A8 /* SettingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUITests.swift; sourceTree = "<group>"; };
 		9DA6B29864C254EEBF09BAE7 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
 		9E00D3E42A98823A3EAE22C8 /* GarageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageView.swift; sourceTree = "<group>"; };
@@ -160,6 +173,8 @@
 		BF2AA93F6B2AE945ADFCA200 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C181B090C4082ACBE15545A4 /* ChampionshipUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChampionshipUITests.swift; sourceTree = "<group>"; };
 		C59E322ED09A4C7FE00DE975 /* GameCenterAndResultsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterAndResultsUITests.swift; sourceTree = "<group>"; };
+		CA4E04629442B807DF49919D /* HelpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpUITests.swift; sourceTree = "<group>"; };
+		CC7E03C13B13C6FC716F7F70 /* CloudAIControlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudAIControlTests.swift; sourceTree = "<group>"; };
 		D0083D3FCF9E8F43A8860B36 /* RaceSimulation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceSimulation.swift; sourceTree = "<group>"; };
 		D08D49712984ED46836A4781 /* HapticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsService.swift; sourceTree = "<group>"; };
 		D38BFF52F04EEB5FD2279FE5 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
@@ -176,6 +191,7 @@
 		ED6FECF7444E07D90F29FFDC /* GameCenterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterService.swift; sourceTree = "<group>"; };
 		EF92DE64BD9902041620F32C /* RaceOverlays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceOverlays.swift; sourceTree = "<group>"; };
 		FA72763FD27BAB782B9A2C42 /* TestSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSupport.swift; sourceTree = "<group>"; };
+		FA8C94A1109A2AB4E98B94B8 /* CloudAIConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudAIConfigurationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,9 +273,12 @@
 				756FFF10D4C93A1360AD89D3 /* AudioSmokeTests.swift */,
 				96F9F2AADFBF36B531DD2E0F /* ChampionshipTests.swift */,
 				C181B090C4082ACBE15545A4 /* ChampionshipUITests.swift */,
+				FA8C94A1109A2AB4E98B94B8 /* CloudAIConfigurationTests.swift */,
+				CC7E03C13B13C6FC716F7F70 /* CloudAIControlTests.swift */,
 				E575826ACBE97EC302A494E1 /* CloudAIServiceTests.swift */,
 				C59E322ED09A4C7FE00DE975 /* GameCenterAndResultsUITests.swift */,
 				33753F833A41226ADB368D8E /* GarageUITests.swift */,
+				CA4E04629442B807DF49919D /* HelpUITests.swift */,
 				6977FFA38BE0C0539446B81F /* MainMenuUITests.swift */,
 				BE0BB36A08438AEE9D50C685 /* MenuCommandTests.swift */,
 				60BDC93270E1F3EBBF3CF016 /* PhysicsTests.swift */,
@@ -336,6 +355,7 @@
 				DDBCAB2E33FA9C294CC3899A /* ApexSlotRacingApp.swift */,
 				B2C15E3E6532BF48012B7497 /* AppModel.swift */,
 				86026159429C74BA59E4CF5B /* Commands.swift */,
+				1684704AA000C15C2ADDE9CC /* HelpWindowController.swift */,
 				73394F88B92E2088D580E7B4 /* RootView.swift */,
 			);
 			path = App;
@@ -345,7 +365,9 @@
 			isa = PBXGroup;
 			children = (
 				A510E849E24DE97DDAAC3B65 /* AchievementService.swift */,
+				9BB40FA87FFBA97979361E57 /* CloudAIConfiguration.swift */,
 				04C35B3E37CAA97FF84D722A /* CloudAIService.swift */,
+				65B5C0AF2B5E789E1D733F05 /* CloudAITokenStore.swift */,
 				ED6FECF7444E07D90F29FFDC /* GameCenterService.swift */,
 				D08D49712984ED46836A4781 /* HapticsService.swift */,
 				392D4FD5399F39DE3CE953D1 /* NetworkMonitor.swift */,
@@ -370,6 +392,7 @@
 				15732A82FB463757A04DA7EF /* Components.swift */,
 				8E15F74AC113FA3E896D72F6 /* Theme.swift */,
 				09FE40E48A55CDD21FA22A35 /* Components */,
+				F6FFC9981222BD63FE503732 /* Help */,
 				F66E991D2C5AF2793C7B8EB8 /* HUD */,
 				6CF24924045DBEB43B8444E2 /* Screens */,
 			);
@@ -439,6 +462,15 @@
 			path = HUD;
 			sourceTree = "<group>";
 		};
+		F6FFC9981222BD63FE503732 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				6C96B2AC793F80858A6CEA00 /* HelpContent.swift */,
+				44D238C242896D2445F639E7 /* HelpView.swift */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -486,7 +518,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 2720;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					5AA2183C09F43BBE873C1062 = {
 						DevelopmentTeam = "";
@@ -548,13 +580,18 @@
 				7134774589F0EFC008AD4060 /* ChampionshipDirector.swift in Sources */,
 				ECE08D8B028AB3A88140B7E1 /* ChampionshipView.swift in Sources */,
 				6603BC2F1E8257BFDEA16986 /* ClosurePathPlanner.swift in Sources */,
+				432A1D33979A10A4EFA8063A /* CloudAIConfiguration.swift in Sources */,
 				4D562C87E8489B633727C87E /* CloudAIService.swift in Sources */,
+				7262FA245AB1B976BE3C61E4 /* CloudAITokenStore.swift in Sources */,
 				6E9744D6F7AE956D3F36EBD5 /* Commands.swift in Sources */,
 				E471158576E4917C3B0AB8F7 /* Components.swift in Sources */,
 				69B61ED7D903FB9B58BB557B /* GameCenterService.swift in Sources */,
 				AF8C93897FB6A60D7A3DBE6B /* GameCenterView.swift in Sources */,
 				8BBE7D5250656E29622A7433 /* GarageView.swift in Sources */,
 				3763E636BE9E6802F04E2D74 /* HapticsService.swift in Sources */,
+				600E8542B22D34952FFE490C /* HelpContent.swift in Sources */,
+				A59182687FFDFDFD9E6AB2F7 /* HelpView.swift in Sources */,
+				3954A7B6AE4B6AB9CDF733CB /* HelpWindowController.swift in Sources */,
 				4819CC477189918CDE4F28B2 /* MainMenuView.swift in Sources */,
 				F27A50DB35CBE754ED75E86C /* MotorSynth.swift in Sources */,
 				A8441555CE8640F5FE297761 /* MusicSynth.swift in Sources */,
@@ -597,9 +634,12 @@
 				FA05F60503E9AF48EE6D51C7 /* AudioSmokeTests.swift in Sources */,
 				48FB27FB485D420E1A5FBB86 /* ChampionshipTests.swift in Sources */,
 				42416DC0EEEDFB9B191E396B /* ChampionshipUITests.swift in Sources */,
+				16DBE4EFD3E158F5F65A2208 /* CloudAIConfigurationTests.swift in Sources */,
+				8DBA257A04B9E84F549F1286 /* CloudAIControlTests.swift in Sources */,
 				09BBF722DC13E2CD85C2F7E1 /* CloudAIServiceTests.swift in Sources */,
 				E4C9D2785BF1032317FEE8BE /* GameCenterAndResultsUITests.swift in Sources */,
 				6D3D90F1013125366F369500 /* GarageUITests.swift in Sources */,
+				FB09CE544DEA7ADD1F3B8DCB /* HelpUITests.swift in Sources */,
 				554EC73FFF3BA3E61774E180 /* MainMenuUITests.swift in Sources */,
 				9B997151DF038D266D0EE00B /* MenuCommandTests.swift in Sources */,
 				D32FD5C889604BE8ECADFF78 /* PhysicsTests.swift in Sources */,
@@ -631,7 +671,6 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -681,7 +720,6 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -702,7 +740,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_STRICT_CONCURRENCY = minimal;
@@ -747,7 +784,6 @@
 				CODE_SIGNING_REQUIRED = NO;
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -775,7 +811,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_STRICT_CONCURRENCY = minimal;
@@ -788,7 +823,6 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -808,7 +842,6 @@
 				CODE_SIGN_ENTITLEMENTS = ApexSlotRacing/Support/ApexSlotRacing.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = ApexSlotRacing/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -828,7 +861,6 @@
 				CODE_SIGN_ENTITLEMENTS = ApexSlotRacing/Support/ApexSlotRacing.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = ApexSlotRacing/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

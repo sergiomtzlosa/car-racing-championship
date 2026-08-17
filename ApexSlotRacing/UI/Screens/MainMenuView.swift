@@ -186,6 +186,14 @@ struct MainMenuView: View {
                 .tracking(1.2)
                 .foregroundStyle(Theme.muted.opacity(0.6))
             Spacer()
+            Button("HELP") {
+                app.showHelp()
+            }
+            .buttonStyle(.plain)
+            .font(.system(size: 8, weight: .bold, design: .rounded))
+            .tracking(1.2)
+            .foregroundStyle(Theme.offWhite.opacity(0.8))
+            .accessibilityIdentifier("menu.help")
             Button("QUIT") {
                 NSApplication.shared.terminate(nil)
             }

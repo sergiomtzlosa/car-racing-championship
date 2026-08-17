@@ -79,6 +79,7 @@ xcodebuild \
 | Pause / resume | `Esc` / `P` |
 | Restart race | `R` |
 | Mute audio | `M` |
+| Open Help | `Command-?` |
 
 ### Gamepad
 
@@ -123,7 +124,15 @@ A 3D circuit editor with:
 Three-handling-distinct cars with procedural bodies, PBR paint and clear coat, wheels/rims, glasses, lights, decals and visible livery changes. Paint, rim style and decal set changes persist in the local profile and appear in races.
 
 ### Settings
-Audio mix, graphics quality, camera default, frame statistics, reduced motion, cloud-AI endpoint/test, Game Center sign-in/dashboard, unlock-all testing shortcut and local-data reset.
+Audio mix, graphics quality, camera default, frame statistics, reduced motion, Cloud AI transport/token/model and presets, Game Center sign-in/dashboard, unlock-all testing shortcut and local-data reset.
+
+### Help
+A secondary native **Help** window is always one action away:
+
+- **Help → Apex Slot Racing Help** or **Command-?**
+- The **HELP** button in the Main Menu footer
+
+The handbook covers Quick Start, Race Controls, Driving & Penalties, Game Modes, Track Editor, Garage & Unlocks, and Settings & Data. It uses the same dark procedural styling as the game, is fully keyboard accessible, closes with `Esc`, and reopens without disturbing the race or menu state.
 
 ---
 
@@ -131,7 +140,7 @@ Audio mix, graphics quality, camera default, frame statistics, reduced motion, c
 
 ```
 ApexSlotRacing/
-├── App/            App lifecycle, routing, commands
+├── App/            App lifecycle, routing, commands, Help window
 ├── Core/
 │   ├── Track/      Editor model and track mutation helpers
 │   ├── Race/       Fixed-step simulation, AI, lap timing
@@ -140,7 +149,7 @@ ApexSlotRacing/
 │   ├── TrackModels.swift, TrackPath.swift, TrackPathBuilder.swift
 │   └── TrackCatalog.swift
 ├── Scene/          SceneKit factory, camera rig, input, editor viewport
-├── UI/             SwiftUI screens, HUD, shared components, theme
+├── UI/             SwiftUI screens, Help handbook, HUD, shared components, theme
 ├── Audio/          AVAudioEngine motor synth, SFX, procedural music
 ├── Services/       Game Center, cloud AI, network, haptics, achievements
 ├── Resources/      Icon assets, asset catalog, reference track JSON
@@ -188,7 +197,7 @@ When the app is signed with the App Sandbox entitlement, macOS redirects this pa
 ~/Library/Containers/com.sid.ApexSlotRacing/Data/Library/Application Support/ApexSlotRacing/
 ```
 
-Settings are stored in `UserDefaults` under `apexSlotRacing.settings.v1`. All JSON writes are atomic. Track and championship schema versions are checked during import.
+Settings are stored in `UserDefaults` under `apexSlotRacing.settings.v1`. The optional cloud-AI API token is stored separately as a generic password in the macOS Keychain and is intentionally excluded from the settings JSON. All JSON writes are atomic. Track and championship schema versions are checked during import. When Keychain access is unavailable (for example an unsigned sandboxed local build), the token remains in memory for the current session only.
 
 ### Track JSON schema
 
@@ -296,49 +305,91 @@ Achievement progress and records remain available in `profile.json` regardless o
 
 ## Optional cloud AI
 
-The local AI is authoritative. Cloud AI sends anonymous race telemetry at roughly 10 Hz and overlays a throttle/brake/target-speed prediction when available. The request has a 0.35-second timeout, ignores stale responses, and silently falls back to local control on network errors, invalid JSON or HTTP failure. No Game Center identity or personal data is sent.
+The local AI is authoritative. Cloud AI sends anonymous race telemetry and overlays a throttle/brake/target-speed prediction when available. It silently falls back to local control on network errors, invalid JSON or HTTP failure. No Game Center identity or personal data is sent.
 
-Enable it in **Settings → Cloud AI** and supply an endpoint. The default local endpoint is:
+Two compatible transports are supported:
 
-```
-http://127.0.0.1:8787/v1/drive
-```
+| Connection style | Endpoint | Auth | Polling and freshness |
+|---|---|---|---|
+| Direct JSON | `/v1/drive` | none | 220 ms polling · 0.35 s request timeout · 0.65 s control lifetime |
+| OpenAI-compatible | `/v1/chat/completions` | `Authorization: Bearer <token>` | 1.5 s polling · 12 s request timeout · 20 s control lifetime |
+
+The OpenAI-compatible mode is deliberately slower and keeps a successful decision authoritative longer, because hosted language models cannot answer at the direct protocol's 10 Hz cadence. The local driver remains active underneath in both modes.
+
+Enable it in **Settings → Cloud AI**. Available fields:
+
+- **Connection style** — Direct JSON or OpenAI-compatible
+- **Endpoint** — full request URL
+- **API token** — Bearer token for OpenAI-compatible mode, stored in the macOS Keychain
+- **Model** — chat-completions model ID
+- **Presets** — OpenCode Zen, local mock and OpenAI defaults
+- **Test Connection** — sends a sample telemetry frame using the current configuration
 
 Only `https` endpoints and loopback `http` endpoints are accepted. This keeps the optional local demo from weakening the app's ATS policy.
 
-### Mock server
+### OpenCode Zen presets
 
-The repository includes a standard-library-only mock:
+The Settings panel includes one-click presets for the OpenCode Zen OpenAI-compatible endpoint:
 
-```bash
-python3 Tools/ai-mock-server.py --port 8787
+```
+https://opencode.ai/inference/openai/v1/chat/completions
 ```
 
-Health check:
+Free-model presets include:
 
-```bash
-curl http://127.0.0.1:8787/health
-```
+| Model ID | Display name |
+|---|---|
+| `deepseek-v4.1-flash-free` | DeepSeek V4.1 Flash Free |
+| `glm-5.3-flash-free` | GLM 5.3 Flash Free |
+| `mimo-v2.6-flash-free` | MiMo v2.6 Flash Free |
+| `big-pickle` | Big Pickle |
+| `iceman-free` | Iceman Free |
+| `beam-free` | Beam Free |
 
-Drive request:
+Use an OpenCode API key with `Authorization: Bearer <token>`. According to OpenCode's documentation, free-tier chat models require the OpenCode client; direct API clients need a paid model or OpenCode Go access. The presets and protocol support are included for convenience and are not a guarantee of free direct access. The bundled local mock exercises the same wire protocol offline.
 
-```bash
-curl -s -X POST http://127.0.0.1:8787/v1/drive \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "speed": 6.2,
-    "maxSpeed": 9.2,
-    "lookahead": [
-      {"distance": 2.0, "curvature": 0.30},
-      {"distance": 5.0, "curvature": 0.0}
-    ]
-  }'
-```
+### OpenAI-compatible protocol
 
-Example response:
+Request:
 
 ```json
-{"throttle":0.2412,"brake":0.247,"targetSpeed":5.428,"confidence":0.9491}
+POST /v1/chat/completions
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "model": "deepseek-v4.1-flash-free",
+  "messages": [
+    {"role": "system", "content": "You are the CPU driver ... Reply with ONLY one compact JSON object."},
+    {"role": "user", "content": "{\"sessionId\":\"UUID\",\"trackId\":\"loop_360\",\"difficulty\":\"medium\",\"speed\":8.4,\"maxSpeed\":12.0,\"opponentGap\":6.2,\"boostAvailable\":false,\"lookahead\":[...]}"}
+  ],
+  "temperature": 0.2,
+  "max_tokens": 96,
+  "stream": false
+}
+```
+
+The assistant message must contain the same compact decision object. Markdown fences and surrounding prose are tolerated; values are clamped to `0...1`.
+
+```json
+{
+  "choices": [
+    {
+      "message": {
+        "role": "assistant",
+        "content": "{\"throttle\":0.88,\"brake\":0.0,\"targetSpeed\":7.9,\"confidence\":0.92}"
+      }
+    }
+  ]
+}
+```
+
+### Direct JSON protocol
+
+Enable **Direct JSON** and supply an endpoint such as:
+
+```
+http://127.0.0.1:8787/v1/drive
 ```
 
 Protocol summary:
@@ -364,7 +415,57 @@ POST /v1/drive
 {"throttle":0.88,"brake":0.0,"targetSpeed":7.9,"confidence":0.92}
 ```
 
-The mock server implements a conservative safe-speed heuristic and is intended for demonstration and QA. It is not required to play the game.
+### Mock server
+
+The repository includes a standard-library-only mock that serves both transports:
+
+```bash
+python3 Tools/ai-mock-server.py --port 8787
+```
+
+Health check:
+
+```bash
+curl http://127.0.0.1:8787/health
+```
+
+Direct request:
+
+```bash
+curl -s -X POST http://127.0.0.1:8787/v1/drive \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "speed": 6.2,
+    "maxSpeed": 9.2,
+    "lookahead": [
+      {"distance": 2.0, "curvature": 0.30},
+      {"distance": 5.0, "curvature": 0.0}
+    ]
+  }'
+```
+
+Example response:
+
+```json
+{"throttle":0.2412,"brake":0.247,"targetSpeed":5.428,"confidence":0.9491}
+```
+
+OpenAI-compatible request:
+
+```bash
+curl -s -X POST http://127.0.0.1:8787/v1/chat/completions \
+  -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer demo-token' \
+  -d '{
+    "model": "mock-racer",
+    "messages": [
+      {"role": "system", "content": "Apex Slot Racing"},
+      {"role": "user", "content": "{\"speed\":6.2,\"maxSpeed\":9.2,\"lookahead\":[{\"distance\":2.0,\"curvature\":0.30}]}"}
+    ]
+  }'
+```
+
+The mock implements a conservative safe-speed heuristic and is intended for demonstration and QA. It is not required to play the game.
 
 ---
 
@@ -404,8 +505,10 @@ Covered areas include:
 - Championship creation, qualifying, heats, points, tie-breaks and persistence
 - Audio synthesis smoke tests
 - SceneKit world/car construction, offscreen rendering, and a full race-scene attach/render/teardown
-- Every screen, sheet, HUD element and menu command through an in-process SwiftUI/AppKit accessibility harness (Main Menu, Quick Race/Pursuit setup, Garage, Track Editor including Validate/Auto Close/paste JSON, Settings, Championship setup/completion, Game Center fallback, race HUD, pause/finish overlays, Results)
-- Snapshot renders of all screens and overlays at 1440×900 and 1180×760, including the Track Validation sheet at sheet size
+- Every screen, sheet, HUD element and menu command through an in-process SwiftUI/AppKit accessibility harness (Main Menu including HELP, Help handbook topics and close action, Quick Race/Pursuit setup, Garage, Track Editor including Validate/Auto Close/paste JSON, Settings including Direct JSON and OpenAI-compatible Cloud AI fields/presets, Championship setup/completion, Game Center fallback, race HUD, pause/finish overlays, Results)
+- Cloud-AI request construction and response parsing for both transports using an in-process URL protocol mock, including Bearer auth, fenced/prose-wrapped JSON, malformed replies and fail-soft timeouts
+- Settings migration defaults, Keychain-boundary token handling (token excluded from persisted settings) and provider presets
+- Snapshot renders of all screens and overlays at 1440×900 and 1180×760, including the Track Validation sheet at sheet size and the Help handbook
 
 The UI tests use a visible, retained test window and query the app's own accessibility tree, so they do not require macOS Automation Mode or a separate XCUITest runner. Test sessions disable live Game Center authentication to avoid system prompts; the shipping app still authenticates on launch. Native file/color panels and the Game Center dashboard are covered through their availability and service/action paths because they are system-owned UI.
 
@@ -425,15 +528,17 @@ xcodebuild \
 ### Manual QA checklist
 
 1. Launch, verify the Dock/Finder icon and the live 3D hero menu.
-2. Quick Race on each built-in circuit; cycle Cockpit/Chase/Cinematic.
-3. Deliberately overdrive a corner; confirm crash, three-second penalty and piece-start respawn.
-4. Run the loop circuit and confirm the minimum-speed loop behavior.
-5. Change paint/rim/livery in the Garage, quit, relaunch and confirm persistence.
-6. Build a circuit in the Editor, test drive it, save it, export and re-import it.
-7. Create a 2-driver and an 8-driver championship; run qualifying and a heat; confirm standings persistence.
-8. Enable Cloud AI, run the mock server, test the connection, then stop the server mid-race and confirm the instant local fallback.
-9. Launch unsigned; confirm the Game Center failure degrades to local records.
-10. Resize/fullscreen the window and test keyboard/gamepad input.
+2. Open Help with Command-? and from the Main Menu HELP button; visit every topic and close with `Esc`.
+3. Quick Race on each built-in circuit; cycle Cockpit/Chase/Cinematic.
+4. Deliberately overdrive a corner; confirm crash, three-second penalty and piece-start respawn.
+5. Run the loop circuit and confirm the minimum-speed loop behavior.
+6. Change paint/rim/livery in the Garage, quit, relaunch and confirm persistence.
+7. Build a circuit in the Editor, test drive it, save it, export and re-import it.
+8. Create a 2-driver and an 8-driver championship; run qualifying and a heat; confirm standings persistence.
+9. Enable Cloud AI in Direct JSON mode, run the mock server, test the connection, then stop the server mid-race and confirm the instant local fallback.
+10. Switch to OpenAI-compatible mode, apply the local mock preset and test the connection; optionally try an OpenCode/OpenAI key and confirm the token survives relaunch via Keychain.
+11. Launch unsigned; confirm the Game Center failure degrades to local records.
+12. Resize/fullscreen the window and test keyboard/gamepad input.
 
 ---
 
@@ -477,7 +582,8 @@ The target is 60 fps at 1440×900 with two cars and the full diorama on Apple Si
 
 - Offline single-player only; no real-time multiplayer or online lobby.
 - Game Center requires App Store Connect identifiers and a signing team; the unsigned build intentionally runs local-only.
-- Cloud AI is an optional overlay; the local AI is the guaranteed opponent.
+- Cloud AI is an optional overlay; the local AI is the guaranteed opponent. OpenCode's free-tier chat models may require the OpenCode client, and API tokens depend on the provider's access rules.
+- Cloud-AI tokens use the macOS Keychain. If Keychain access is unavailable in an unsigned sandboxed build, the token remains in memory for that session only.
 - Built-in track layouts are defined in code. The JSON copies in `Resources/Tracks` are reference exports, not a hot-loading mod system.
 - All art and audio are procedural; there are no high-detail USDZ or recorded audio assets bundled.
 - AI-vs-AI championship heats are simulated; only the player's heat is rendered.
