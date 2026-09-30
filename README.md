@@ -2,6 +2,8 @@
 
 A native macOS 3D slot-car championship built with Swift, SwiftUI, SceneKit, AVFoundation, GameKit and Network.framework. The entire visual and audio presentation is procedural: track pieces, cars, paint, textures, the hobby-room diorama, and the soundtrack are generated in code at runtime.
 
+![APEX racing](preview.png)
+
 The game is designed as a premium offline single-player experience, with optional Game Center leaderboards/achievements and an optional external cloud-AI driver. Local AI is always underneath the cloud layer, so the race never depends on the network.
 
 > **Trademark note:** Apex Slot Racing is an independent game inspired by classic 1:32 slot racing. It does not use Scalextric branding, logos, track-system trade dress or third-party art/audio assets.
